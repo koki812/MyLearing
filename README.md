@@ -9,7 +9,7 @@ TS 和 TSX
 辅助的函数文件使用 .ts 即可
 React组件方面，还是须使用.tsx  
 ### reactnode和JsxElement
-类组件类型定义：通过 render() 返回 ReactNode
+类组件类型定义：通过 render() 返回 ReactNode  
 函数组件类型定义：返回 JSX.Element
 ### rem自适应
 一. 动态的计算然后去设置html的字体大小(font-size)；然后页面大小根据一个公式去规范元素的大小

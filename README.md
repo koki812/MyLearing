@@ -1,4 +1,4 @@
-# MyLearing# MyLearing 23/07/10
+# MyLearing 23/07/10
 ### .ts和.tsx后缀的区别
 TS 和 TSX
 .ts 表示为 TypeScript 文件
@@ -18,3 +18,31 @@ React组件方面，还是须使用.tsx
   font-size: calc(100vw / 3.75);
 }
 ### flex弹性布局
+.scss样式文件
+.container {
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+
+.footer {
+    width: 100%;
+    overflow: hidden;
+    height: 6.25rem;
+}
+
+.content {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+container--->content|footer
+### router config
+安装依赖(需要注意安装的依赖版本)
+配置路由文件routerconfig.tsx
+写相应的接口以便调用
+在对应的页面调用router
+### map数组的运用
+以数组为格式对组件进行渲染,减少代码冗余
+1、map()方法内的JSX元素需要指定key值
+2、key值需要唯一,且不能改变
+所以使用map遍历时,需要给子元素添加一个key,作为唯一的标识,而且key值必须要连续

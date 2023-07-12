@@ -44,5 +44,5 @@ export const UserCard = ({ children }: CardProps) => {
 
 
 ```
-### fleX布局tips
+### flex布局tips
 由于文字长度不一导致使用justify-content: space-between之后,样式不一.可以给整个包括div并固定宽高

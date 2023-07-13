@@ -1,4 +1,26 @@
-# 7-12Learning
+## map 数组的运用
+
+以数组为格式对组件进行渲染,减少代码冗余  
+1、map()方法内的 JSX 元素需要指定 key 值  
+2、key 值需要唯一,且不能改变  
+所以使用 map 遍历时,需要给子元素添加一个 key,作为唯一的标识,而且 key 值必须要连续
+
+## 父子组件传 props
+
+```
+export const Items = (props: ItemsProps) => {
+    const { list } = props;
+    return（
+    ...
+    {list.map((itemList: ItemProps, index: number) => {})}
+    ...
+    ）
+}
+```
+
+```
+<Items list={itemsArray} />
+```
 
 ## children 组件
 
@@ -49,7 +71,3 @@ export const UserCard = ({ children }: CardProps) => {
 
 
 ```
-
-### flex 布局 tips
-
-由于文字长度不一导致使用 justify-content: space-between 之后,样式不一.可以给整个包括 div 并固定宽高

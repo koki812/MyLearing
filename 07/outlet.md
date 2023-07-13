@@ -15,6 +15,37 @@ Outlet 组件，将其用于父组件中可以为子路由的元素占位，并�
   </div>
 ```
 
+## <NavLink>组件 
+
+navlink是一种特殊的类型，组件自动定义了两种属性能知道页面当前的路由属性是“active”还是“pending”。所以能根据NavLink的active和penging状态自定义应用   
+
+```
+<NavLink
+                {...routerLinks}
+                to={routerLinks.path}
+                key={index}
+                className={({ isActive }) =>
+                  isActive ? `${styles.iconn}` : ``
+                }
+              >
+                <i className={`iconfont ${routerLinks.icon} ${styles.icon}`} />
+                <div className={styles.xbox}>{routerLinks.title}</div>
+              </NavLink>
+
+```
+
+## useLocation()
+
+useLocation的hook可以返回当前的location对象
+
+```
+{` ${styles.link} ${
+            location.pathname === "/grocery/delivery" && styles.active
+          }`}
+
+
+```
+
 ## null 和 undefined 的区别
 
 null: 是一个空值，被赋予的值为空，类型为对象  

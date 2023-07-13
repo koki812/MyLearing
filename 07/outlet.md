@@ -1,6 +1,6 @@
 # my learning
 
-## <Outlet/>组件
+## Outlet组件
 
 outlet 说的是嵌套路由，可以保证子路由共享父路由的界面而不会覆盖。
 Outlet 组件，将其用于父组件中可以为子路由的元素占位，并最终渲染子路由的元素。  
@@ -15,7 +15,7 @@ Outlet 组件，将其用于父组件中可以为子路由的元素占位，并�
   </div>
 ```
 
-## <NavLink>组件 
+## NavLink组件 
 
 navlink是一种特殊的类型，组件自动定义了两种属性能知道页面当前的路由属性是“active”还是“pending”。所以能根据NavLink的active和penging状态自定义应用   
 

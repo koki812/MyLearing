@@ -1,5 +1,20 @@
 # my learning
 
+## <Outlet/>组件
+
+outlet 说的是嵌套路由，可以保证子路由共享父路由的界面而不会覆盖。
+Outlet 组件，将其用于父组件中可以为子路由的元素占位，并最终渲染子路由的元素。  
+大概就是说 outlet 是应用于嵌套路由的占位的。
+
+```
+  <div>
+  <Link className={styles.link} to="/grocery/delivery">
+  </div>
+  <div>
+  <Outlet />
+  </div>
+```
+
 ## null 和 undefined 的区别
 
 null: 是一个空值，被赋予的值为空，类型为对象  

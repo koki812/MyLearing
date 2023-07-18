@@ -1,29 +1,19 @@
-import React, { useState, useCallback } from "react";
-import { Child } from "./child";
+import { useCallback, useMemo } from "react";
 
-const set = new Set();
+export const TryCallBack = () => {
+  const age = 12;
 
-export default function Parent() {
-  const [count, setCount] = useState<number>(1);
-  const [val, setVal] = useState("input name");
+  const doubleAge = useMemo(() => {
+    return age * 2;
+  }, [age]);
 
-  const callback = useCallback(() => {
-    console.log(count);
-    return count;
-  }, [count]);
-  set.add(callback);
-  console.log(set);
-
+  const addTen = useCallback((initValue: number) => {
+    return initValue + 10;
+  }, []);
   return (
-    <div>
-      <h4>parent count:{count}</h4>
-      <h4>set size:{set.size}</h4>
-      <div>
-        <button onClick={() => setCount(count + 1)}>+</button>
-        <input value={val} onChange={(event) => setVal(event.target.value)} />
-      </div>
-
-      <Child callback={callback} />
-    </div>
+    <>
+      {doubleAge}
+      {addTen}
+    </>
   );
-}
+};

@@ -54,8 +54,8 @@ text-shadow/box-shadow ：水平偏移量 垂直偏移量 模糊半径 扩散半
 
 ### @规则
 
-@import 将一个样式表导入另一个 CSS 样式表：
-@media，用来创建媒体查询。按照媒体查询使用条件逻辑来应用 CSS 样式。
+@import 将一个样式表导入另一个 CSS 样式表：  
+@media，用来创建媒体查询。按照媒体查询使用条件逻辑来应用 CSS 样式。  
 
 # React Hook
 

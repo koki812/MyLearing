@@ -21,7 +21,7 @@
 
 - 标签选择器 所有指定类型的 HTML 元素 eg： p{} html{}
 - id 选择器 一个元素只对应一个 ID eg: `<p id="id">` #id {}
-- 类选择器 一个类可以对应多个实例 eg: `<p class="mystyle"> .mystyle{}
+- 类选择器 一个类可以对应多个实例 eg: `<p class="mystyle">` .mystyle{}
 - 属性选择器 有特定的元素 eg： `<img src="" > ` img[src]
 - 伪类选择器 特定状态下的特定元素 eg: p:hover
 - 全局选择器 是由一个星号`*`代指的，它选中了文档中的所有内容 eg：选中`<article>` 元素的任何第一子元素 `article  *:first-child {}`

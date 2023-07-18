@@ -20,7 +20,7 @@ useMemo(() => { },[dependency]);
 只能在顶层组件或者自己的 hook 中调用，不允许在循环和条件中调用  
 
 ```
-useCallback(() => { },[dependency]);
+useCallback(() => {Function() },[dependency]);
 ```
 
 ```

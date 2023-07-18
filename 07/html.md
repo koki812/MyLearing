@@ -23,9 +23,7 @@ useMemo(() => { },[dependency]);
 useCallback(() => {Function() },[dependency]);
 ```
 
-```
-
-```
+* 在函数式组件中函数会随着状态值的更新重新渲染,函数的定义函数会被频繁定义,在父子组件传参使用useCallback和useMemo结合可以减少子组件更新频率
 
 
 ## html

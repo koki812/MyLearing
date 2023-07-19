@@ -1,13 +1,23 @@
-import { useCallback, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 export const useAction = () => {
   const [age, setAge] = useState<number>(0);
   const [year, setYear] = useState<number>(2000);
-  const [name] = useState<string>("jack");
+  const [name, setName] = useState<string>("jack");
+  const ref = useRef(0);
 
   const handleAgeAdd = useCallback(() => {
+    ref.current = ref.current + 1;
     setAge(age + 1);
-  }, [age]);
+    alert("你已经提交" + ref.current + "次" + name + "的档案");
+  }, [age, name]);
 
   const handleYearAdd = useCallback(() => {
     setYear(year + age);
@@ -25,6 +35,9 @@ export const useAction = () => {
     return year;
   }, [year]);
 
+  const ChildContext = createContext(2000);
+
+  const nameId = useId();
   return {
     name,
     handleAgeAdd,
@@ -32,5 +45,7 @@ export const useAction = () => {
     handleYearIncrease,
     AgeResult,
     YearResult,
+    ChildContext,
+    nameId,
   };
 };

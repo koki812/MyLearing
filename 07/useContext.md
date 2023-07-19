@@ -8,6 +8,23 @@
 
 - tips：React 会自动重新渲染所有特定的上下文的子级，在接受提供者的 value 开始比较，若相同会跳过重新渲染并 memo，反之接收新的上下文值
 
+```
+<!-- 父组件 -->
+    <props.ChildContext.Provider value={props.YearResult}>
+        <Child />
+    </props.ChildContext.Provider>
+<!-- 子组件 -->
+  const ChildContext = createContext(2000);
+  export const Child = React.memo(() => {
+  const child = useContext(ChildContext);
+  return (
+    <div>
+      <span className={styles.default}>出生年份为：{child}</span>
+    </div>
+  );
+});
+```
+
 ## useId
 
 生成可以传递给可访问属性的唯一的 id，从调用组件的'parent path‘生成  
@@ -56,8 +73,8 @@
 
 - 对象的解构赋值：
 
-1. 对象的属性没有次序，变量必须与属性同名，才能取到正确的值。eg： `let { b, f } = { f: 'aa', b: 'bb' };// f "aa" ；b "bb"`
-2. 解构失败，变量的值等于 undefined。eg： `let { h } = { f: 'aa', b: 'bb' }; //h undefined`
+1. 对象的属性没有次序，变量必须与属性同名，才能取到正确的值。eg： `let { body, footer } = { footer: 'aa', body: 'bb' };// f "aa" ；b "bb"`
+2. 解构失败，变量的值等于 undefined。eg： `let { header } = { footer: 'aa', body: 'bb' }; //h undefined`
 3. 可以将现有对象的方法，赋值到某个变量。eg： `let { log, sin, cos } = Math;`
 4. 对象的解构赋值可以取到继承的属性
 5. 对象的解构可以指定默认值，需要对象的属性值严格等于 undefined。

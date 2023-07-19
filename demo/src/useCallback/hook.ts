@@ -1,6 +1,7 @@
 import {
   createContext,
   useCallback,
+  useEffect,
   useId,
   useMemo,
   useRef,
@@ -38,6 +39,10 @@ export const useAction = () => {
   const ChildContext = createContext(2000);
 
   const nameId = useId();
+
+  useEffect(() => {
+    document.title = `${name} ${YearResult} 的档案`;
+  }, [name, YearResult]);
   return {
     name,
     handleAgeAdd,

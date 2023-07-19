@@ -43,6 +43,7 @@ export const useAction = () => {
   useEffect(() => {
     document.title = `${name} ${YearResult} 的档案`;
   }, [name, YearResult]);
+
   return {
     name,
     handleAgeAdd,

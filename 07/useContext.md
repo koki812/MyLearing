@@ -31,11 +31,29 @@
 `const id = userId（ ）` useId 不带任何参数，且返回唯一的 id 字符串  
 不要将生成的 id 用于生成列表的 key 值
 
+```
+const nameId = useId();
+<input type="text" defaultValue={name} id={nameId} />
+<input type="submit" id={nameId} />
+```
+
+运行结果：![Alt text](image-5.png)
+
 ## useRef
 
 引用渲染不需要的值`const ref = useRef（initialValue）`，返回单个属性的对象
 在顶层调用以声明一个或多个引用
 参数：`initialValue`是 ref 对象的 current 属性的初始值，可以是任何类型的值（null 也可以），初次渲染之后被忽略
+
+```
+const ref = useRef(0);
+
+  const handleAgeAdd = useCallback(() => {
+    ref.current = ref.current + 1;
+    setAge(age + 1);
+    alert("你已经提交" + ref.current + "次" + name + "的档案");
+  }, [age, name]);
+```
 
 ##### tips：
 

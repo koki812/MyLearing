@@ -13,7 +13,6 @@ export const TryCallBack = () => {
     nameId,
   } = useAction();
 
-  console.log(nameId);
   return (
     <div>
       <input type="text" defaultValue={name} id={nameId} />

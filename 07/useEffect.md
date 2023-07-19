@@ -1,22 +1,32 @@
 # useEffect Hooks
 
-### 参数1:箭头函数()=>{}，在真正渲染 html 之前会执行它
+### 参数 1:箭头函数()=>{}，在真正渲染 html 之前会执行它
 
-### 参数2:
+### 参数 2:
 
-* 情况1:没有，代表每次执行组件函数时，都会执行副作用函数
+- 情况 1:没有，代表每次执行组件函数时，都会执行副作用函数
+
 ```
 useEffect(() =>{} )
 ```
-* 情况2:[]空数组，代表副作用函数只会执行一次
+
+- 情况 2:[]空数组，代表副作用函数只会执行一次
 
 ```
 useEffect(() =>{},[] )
 ```
-* 情况3:[依赖项]，依赖项变化时，副作用函数会执行
+
+- 情况 3:[依赖项]，依赖项变化时，副作用函数会执行
 
 ```
 useEffect(() =>{},[依赖项] )
+```
+
+```
+  useEffect(() => {
+    document.title = `${name} ${YearResult} 的档案`;
+  }, [name, YearResult]);
+
 ```
 
 # useState Hooks
@@ -24,10 +34,16 @@ useEffect(() =>{},[依赖项] )
 参数:数据的初始值  
 返回值:[a,b]  
 a:状态数据  
-b:方法,修改状态数据的方法setXX()  
+b:方法,修改状态数据的方法 setXX()
 
 ```
 const [a,b] = useState(初始值)
+```
+
+```
+  const [age, setAge] = useState<number>(0);//setAge(age + 1);
+  const [year, setYear] = useState<number>(2000);//  setYear(year + age);
+  const [name, setName] = useState<string>("jack");
 ```
 
 # css 伪元素
@@ -65,4 +81,3 @@ ${
             location.pathname === LocalPathEnum.PickUp && styles.active
           }
 ```
-

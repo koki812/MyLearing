@@ -91,8 +91,8 @@ const ref = useRef(0);
 
 - 对象的解构赋值：
 
-1. 对象的属性没有次序，变量必须与属性同名，才能取到正确的值。eg： `let { body, footer } = { footer: 'aa', body: 'bb' };// f "aa" ；b "bb"`
-2. 解构失败，变量的值等于 undefined。eg： `let { header } = { footer: 'aa', body: 'bb' }; //h undefined`
+1. 对象的属性没有次序，变量必须与属性同名，才能取到正确的值。eg： `let { body, footer } = { footer: 'aa', body: 'bb' };// footer "aa" ；body "bb"`
+2. 解构失败，变量的值等于 undefined。eg： `let { header } = { footer: 'aa', body: 'bb' }; //header undefined`
 3. 可以将现有对象的方法，赋值到某个变量。eg： `let { log, sin, cos } = Math;`
 4. 对象的解构赋值可以取到继承的属性
 5. 对象的解构可以指定默认值，需要对象的属性值严格等于 undefined。

@@ -88,3 +88,9 @@
 
 1. promise 被 resolve
 2. Response.ok 属性为 true
+
+## 封装请求
+
+1. 定义一个 async function 异步函数，它可以接受 url 和 options 作为参数。在函数内部，使用 await 关键字等待 fetch 函数返回的 Promise 对象。
+2. 响应的状态码不是 200（即请求失败），这时候抛出一个错误。反之，使用 await 关键字等待响应对象的 json()方法，将响应体解析为 JSON 数据。
+3. 返回解析后的数据。

@@ -1,6 +1,6 @@
 # fetch 封装
 
-1. 在 public 文件夹内创建 appsetting.json。
+1. 在 public 文件夹内创建 appsetting.json。  
    ![Alt text](image-6.png)
 
 2. 写入需要存储和表示数据   

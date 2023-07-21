@@ -3,8 +3,8 @@
 1. 在 public 文件夹内创建 appsetting.json
    ![Alt text](image-6.png)
 
-2. 写入需要存储和表示数据![image-20230721160731756](/Users/koki/Library/Application Support/typora-user-images/image-20230721160731756.png)
-   
+2. 写入需要存储和表示数据
+   ![Alt text](image-7.png)
 3. 在 src 文件夹下创建 appsetting.ts,定义接口类型并将发起请求 json 的数据，将返回的结果定义给全局环境中 appSettings 对象
    ![Alt text](image-8.png)
 4. 在 src 文件夹下创建 AppHook.ts，用于挂载异步函数，并返回判断结果

@@ -9,7 +9,7 @@ children 组件标签之间的内容会被当做一个特殊的属性 props.chil
 - 传递函数
 - 传递子组件
 
-```
+```TypeScript
 export const UserCard = ({ children }: CardProps) => {
   return (
     <div className={styles.default}>

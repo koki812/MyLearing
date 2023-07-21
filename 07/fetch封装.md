@@ -125,7 +125,7 @@ export const GetSwiperImgData = async (
 9. 在 hook 中调用封装好的方法传入参数获取数据
 
 ```
-useEffect(() => {
+  useEffect(() => {
     GetCardListData({
       limit: 10,
       page: 1,

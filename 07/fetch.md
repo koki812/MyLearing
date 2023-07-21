@@ -20,17 +20,17 @@ fetch()是用于发起网络请求的方法。它使用了 Promise 对象来处�
 
 ```
 fetch(url, {
-      method: " ", // *GET, POST, PUT, DELETE, etc.
-      mode: " ",' // no-cors, *cors, same-origin
-      cache: " ", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: " ", // include, *same-origin, omit
-      headers: {
-        "Content-Type": " ",   // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      redirect: " ",  // manual, *follow, error
-      referrerPolicy: " ",   // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-      body: JSON.stringify(data), // body data type must match "Content-Type" header
-    })
+	method: " ", // *GET, POST, PUT, DELETE, etc.
+	mode: " ", // no-cors, *cors, same-origin
+	cache: " ", // *default, no-cache, reload, force-cache, only-if-cached
+	credentials: " ", // include, *same-origin, omit
+	headers: {
+		"Content-Type": " ", // 'Content - Type ': 'application / x - www - form - urlencoded ',
+	},
+	redirect: " ", // manual, *follow, error
+	referrerPolicy: " ", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+	body: JSON.stringify(data), // body data type must match "Content-Type" header
+})
 ```
 
 - tips：  
@@ -43,12 +43,11 @@ fetch(url, {
 2. 定义一个异步函数，用于发送网络请求：
 
 ```
-async function postData(url: string, data: UrlPostProps) {
-    const response = await fetch(url, {
-      ...
-    });
-    return response.json();
-  }
+const postData = async(url: string, data: UrlPostProps) => {
+	const response = await fetch(url, {...
+	});
+	return response.json();
+}
 ```
 
 3. 调用异步函数：
@@ -60,7 +59,7 @@ useEffect(() => {
     }).then((data) => {
       setUrlData(data);  //const [urlData, setUrlData] = useState<IUrlDataProps[]>([]);
     });
-  }, []);
+}, []);
 ```
 
 4. 运行 React 应用，当组件被渲染时，异步函数将会被调用。
@@ -70,31 +69,31 @@ useEffect(() => {
 ## Post 方法
 
 ```
-const [urlData, setUrlData] = useState<IUrlDataProps[]>([]);
-  const [cardData, setCardData] = useState<ICardDateProps[]>([]);
-  async function postData(url: string, data: UrlPostProps) {
+ const postData = async (url: string, data: UrlPostProps) => {
     const response = await fetch(url, {
       method: "POST",
       mode: "cors",
-      // cache: "no-cache",
-      // credentials: "same-origin",
       headers: {
         "Content-Type": "application/json",
       },
-      // redirect: "follow",
-      // referrerPolicy: "no-referrer",
       body: JSON.stringify(data),
     });
     return response.json();
-  }
+  };
+
   useEffect(() => {
     postData("https://testapi.yamimeal.com/api/Advertisement/advertisements", {
       languageCode: "zh-TW",
       latLang: { lat: 37, lng: -121 },
       pageLocation: 0,
-    }).then((data) => {
-      setUrlData(data);
-    });
+    })
+      .then((data) => {
+        setUrlData(data);
+      })
+      .catch((err) => {
+        console.error(err);
+        throw new Error(err);
+      });
   }, []);
 
 ```
@@ -102,23 +101,32 @@ const [urlData, setUrlData] = useState<IUrlDataProps[]>([]);
 ## Get 方法
 
 ```
-async function getData(url: string) {
+  const getData = async (url: string) => {
     const response = await fetch(url, {
       method: "GET",
     });
     return response.json();
-  }
+  };
+
   useEffect(() => {
     getData(
       `https://testapi.yamimeal.com/api/merch/list?limit=10&page=1&deliveryType=1&lat=37&lng=-121`
-    ).then((data) => {
-      const results = data.result;
-      setCardData(results);
-    });
+    )
+      .then((data) => {
+        const results = data.result;
+        setCardData(results);
+      })
+      .catch((err) => {
+        console.error(err);
+        throw new Error(err);
+      });
   }, []);
+
 ```
 
 - fetch（）API 学习地址：https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch#%E5%8F%82%E8%A7%81
+
+# 异步函数
 
 ## async & await & promise
 
@@ -136,8 +144,7 @@ useEffect 是用于在函数组件中处理副作用的 Hook，在组件渲染�
 
 ```
 useEffect(() => {
-  const fetchData = async () => {
-  };
+  const fetchData = async () => {};
 }, []);
 ```
 

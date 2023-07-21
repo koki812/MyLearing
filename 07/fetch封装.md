@@ -7,7 +7,7 @@
    ![Alt text](image-7.png)
 3. 在 src 文件夹下创建 appsetting.ts,定义接口类型并将发起请求 json 的数据，将返回的结果定义给全局环境中 appSettings 对象
    ![Alt text](image-8.png)
-4. 在 src 文件夹下创建 AppHook.ts，用于挂载异步函数，并返回判断结果
+4. 在 src 文件夹下创建 AppHook.ts，组件可以使用该 Hook 来判断数据是否加载完成，并根据 isLoad 状态进行相应的渲染处理
    ![Alt text](image-9.png)
 5. 在 App.tsx 中判断是否载入
    ![Alt text](image-10.png)
@@ -18,7 +18,7 @@
 8. 封装需要调取数据的方法
    ![Alt text](image-13.png)
 9. 在 hook 中调用封装好的方法传入参数获取数据
-   ![Alt text](image-14.png)
+   ![Alt text](image-16.png)
 
 ## 在封装过程中遇到的问题
 

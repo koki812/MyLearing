@@ -4,21 +4,22 @@
    ![Alt text](image-6.png)
 
 2. 写入需要存储和表示数据
-   ![Alt text](image-7.png)
 
-3. 在 src 文件夹下创建 appsetting.ts,定义接口类型并将发起请求 json 的数据，将返回的结果定义给全局环境中 appSettings 对象
+3. ![image-20230721160620998](/Users/koki/Library/Application Support/typora-user-images/image-20230721160620998.png)
+
+4. 在 src 文件夹下创建 appsetting.ts,定义接口类型并将发起请求 json 的数据，将返回的结果定义给全局环境中 appSettings 对象
    ![Alt text](image-8.png)
-4. 在 src 文件夹下创建 AppHook.ts，用于挂载异步函数，并返回判断结果
+5. 在 src 文件夹下创建 AppHook.ts，用于挂载异步函数，并返回判断结果
    ![Alt text](image-9.png)
-5. 在 App.tsx 中判断是否载入
+6. 在 App.tsx 中判断是否载入
    ![Alt text](image-10.png)
-6. 创建 api 文件夹
+7. 创建 api 文件夹
    ![Alt text](image-11.png)
-7. 放入接口封装的方法
+8. 放入接口封装的方法
    ![Alt text](image-12.png)
-8. 封装需要调取数据的方法
+9. 封装需要调取数据的方法
    ![Alt text](image-13.png)
-9. 在 hook 中调用封装好的方法传入参数获取数据
+10. 在 hook 中调用封装好的方法传入参数获取数据
    ![Alt text](image-14.png)
 
 ## 在封装过程中遇到的问题

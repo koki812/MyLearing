@@ -9,7 +9,6 @@ export const TodoList = () => {
     const handleAddTodo = () => {
         if (text.trim() !== "") {
             dispatch({ type: "add", variety: text });
-            setText("");
         }
     };
 

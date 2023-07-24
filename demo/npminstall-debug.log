@@ -3,7 +3,7 @@
   registry: 'https://registry.npmmirror.com',
   pkgs: [
     {
-      name: 'node-sass',
+      name: 'tailwindcss',
       version: 'latest',
       type: 'tag',
       alias: undefined,
@@ -15,7 +15,7 @@
   cacheDir: '/Users/koki/.npminstall_tarball',
   env: {
     npm_config_registry: 'https://registry.npmmirror.com',
-    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=/Users/koki/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","node-sass"],"original":["--fix-bug-versions","--china","--userconfig=/Users/koki/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","node-sass"]}',
+    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=/Users/koki/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","-D","tailwindcss"],"original":["--fix-bug-versions","--china","--userconfig=/Users/koki/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","-D","tailwindcss"]}',
     npm_config_user_agent: 'npminstall/7.9.0 npm/? node/v20.4.0 darwin arm64',
     npm_config_cache: '/Users/koki/.npminstall_tarball',
     NODE: '/opt/homebrew/Cellar/node/20.4.0/bin/node',

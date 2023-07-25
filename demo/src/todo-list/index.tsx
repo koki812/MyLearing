@@ -4,7 +4,8 @@ import styles from "./styles.module.scss";
 
 export const TodoList = () => {
     const [todos, dispatch] = useReducer(todoReducer, []);
-    const [text, setText] = useState("");
+
+    const [text, setText] = useState<string>("");
 
     const handleAddTodo = () => {
         if (text.trim() !== "") {

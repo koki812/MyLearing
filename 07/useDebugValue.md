@@ -99,10 +99,10 @@ all 所有设备
 
 -   CSS3 多媒体类型
 
-    all 用于所有多媒体类型设备
-    print 用于打印机
-    screen 用于电脑屏幕，平板，智能手机等。
-    speech 用于屏幕阅读器
+    all 用于所有多媒体类型设备   
+    print 用于打印机   
+    screen 用于电脑屏幕，平板，智能手机等。   
+    speech 用于屏幕阅读器   
 
 # tailwind 初了解
 

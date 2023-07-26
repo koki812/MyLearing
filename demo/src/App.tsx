@@ -3,6 +3,7 @@ import { TodoList } from "./todo-list";
 import { TryCallBack } from "./useCallback";
 import { DebugValueDemo } from "./useDebugValue";
 import { Counter } from "./useReducer";
+import { DemoTrasition } from "./useTransition";
 
 function App() {
     return (
@@ -10,7 +11,8 @@ function App() {
             {/* <TryCallBack />
             <Counter /> */}
             {/* <TodoList /> */}
-            <DebugValueDemo />
+            {/* <DebugValueDemo /> */}
+            <DemoTrasition />
         </div>
     );
 }

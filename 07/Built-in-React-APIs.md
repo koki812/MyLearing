@@ -2,9 +2,9 @@
 
 ## createContext
 
--   用于创建一个上下文（context）对象。上下文对象可以在组件树中的任何位置被访问和更新，用于实现组件之间的数据共享。
-    `const SomeContext = createContext(defaultValue)`
-    defaultValue：是一个可选的默认值，用于在没有匹配到 Provider 时使用。默认值是静态的，不会随着时间的推移而改变。
+-   用于创建一个上下文（context）对象。上下文对象可以在组件树中的任何位置被访问和更新，用于实现组件之间的数据共享。    
+    `const SomeContext = createContext(defaultValue)`   
+    defaultValue：是一个可选的默认值，用于在没有匹配到 Provider 时使用。默认值是静态的，不会随着时间的推移而改变。   
 
 ## forwardRef（render）
 

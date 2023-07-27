@@ -1,6 +1,6 @@
 # css 2D 变换
 
--   transform 属性，2D 转换方法：
+transform 属性，2D 转换方法：
 
     1. translate()：用于指定元素在水平和垂直方向上的平移距离。
 
@@ -22,21 +22,21 @@
 
 # css 3D 变换
 
--   transform 属性，3D 转换方法：
+transform 属性，3D 转换方法：
     1. rotateX(): 将元素绕其 X 轴旋转给定角度
     2. rotateY(): 将元素绕其 Y 轴旋转给定角度
     3. rotateZ(): 将元素绕其 Z 轴旋转给定角度
 
 # css 过渡
 
-创建过渡效果: 1. 要添加效果的 CSS 属性 2. 效果的持续时间
+创建过渡效果: 1. 要添加效果的 CSS 属性 2. 效果的持续时间   
 
--   如果未指定持续时间部分，则过渡将不起作用，默认值为 0。
+如果未指定持续时间部分，则过渡将不起作用，默认值为 0。   
 
-1. transition
-2. transition-delay: 过渡效果的延迟（以秒为单位）
-3. transition-duration: 元素过渡效果的持续时间
-4. transition-property: 指定过渡效果应用于哪些 CSS 属性
+1. transition   
+2. transition-delay: 过渡效果的延迟（以秒为单位）   
+3. transition-duration: 元素过渡效果的持续时间   
+4. transition-property: 指定过渡效果应用于哪些 CSS 属性   
 
 -   none: 表示没有属性会应用过渡效果。
     all: 表示所有属性都会应用过渡效果。

@@ -29,8 +29,8 @@ const Component = forwardRef((props, ref) => {
 
     -   load（ 不接收任何参数 ）：返回 Promise 或另一个 thenable 的函数。
 
-          1. load 直到第一次尝试渲染返回的组件时，React 才会调用。
-          2. React 第一次调用后 load，会等待它解析，然后将解析后的值渲染为 React 组件。返回的 Promise 和 Promise 的解析值都会被缓存
+        1. load 直到第一次尝试渲染返回的组件时，React 才会调用。
+        2. React 第一次调用后 load，会等待它解析，然后将解析后的值渲染为 React 组件。返回的 Promise 和 Promise 的解析值都会被缓存
 
         -   因此 React 不会调用 load 多次。如果 Promise 被拒绝，React 会将 throw 拒绝原因交给最近的错误边界来处理。
 
@@ -52,3 +52,54 @@ const Component = forwardRef((props, ref) => {
 
     -   scope：一种通过调用一个或多个 set 函数来更新某些状态的函数。React 立即 scope 不带参数调用，并将 scope 函数调用期间同步调度的所有状态更新标记为转换。它们将是非阻塞的，并且不会显示不需要的加载指示器。
     -   startTransition 不返回任何内容。
+
+```typescript
+import { createContext, lazy, startTransition, useRef, useState } from "react";
+import { ForwardRefDemo } from "./forwardRef";
+import { Memoized } from "./memoized";
+
+const Lazy = lazy(() => import("../todo-list/index"));
+
+const ContextDemo = createContext<string>("value");
+
+export const BuiltReactApi = () => {
+    const [count, setCount] = useState<number>(0);
+
+    const ref = useRef<HTMLDivElement>(null);
+
+    const handleClick = () => {
+        startTransition(() => {
+            setCount(count + 1);
+        });
+    };
+
+    return (
+        <div>
+            <ContextDemo.Provider value="context value">
+                <Lazy />
+            </ContextDemo.Provider>
+
+            <ForwardRefDemo text="Ref Demo" ref={ref} />
+
+            <Memoized count={count} />
+
+            <button onClick={handleClick}> Count++ </button>
+        </div>
+    );
+};
+```
+
+```typescript
+export const ForwardRefDemo = forwardRef<HTMLDivElement, { text: string }>(
+    ({ text }, ref) => {
+        return <div ref={ref}>{text}</div>;
+    }
+);
+```
+
+```typescript
+export const Memoized = memo(({ count }: { count: number }) => {
+    console.log("Rendering");
+    return <div>{count}</div>;
+});
+```

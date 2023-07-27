@@ -53,3 +53,4 @@ export const TodoList = () => {
         </div>
     );
 };
+export default TodoList;

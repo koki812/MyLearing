@@ -68,11 +68,10 @@
 
 # tailwindcss
 
-## Top / Right / Bottom / Left
-
 -   使用负值
     要使用负的上/右/下/左值，请在类名前面加上破折号以将其转换为负值。eg：`-left-4 -top-4`
     负 z-index 值，请在类名称前面加上破折号以将其转换为负值。eg：`-z-50`
+
 -   使用逻辑属性
     使用 start-*和 end-*实用程序设置`inset-inline-start`和 `inset-inline-end`逻辑属性，它们根据文本方向映射到左侧或右侧。
     flex-initial 允许弹性项目收缩但不增长，同时考虑到其初始大小

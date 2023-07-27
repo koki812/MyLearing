@@ -1,3 +1,4 @@
+import { BuiltReactApi } from "./reactAPI";
 import styles from "./styles.module.scss";
 import { TodoList } from "./todo-list";
 import { TryCallBack } from "./useCallback";
@@ -12,7 +13,8 @@ function App() {
             <Counter /> */}
             {/* <TodoList /> */}
             {/* <DebugValueDemo /> */}
-            <DemoTrasition />
+            {/* <DemoTrasition /> */}
+            <BuiltReactApi />
         </div>
     );
 }

@@ -31,6 +31,6 @@ align-items: center;
 flex-direction: column;
 }
 
-flex 布局，item 垂直排列，若 space-between 不齐可设置定宽
+flex 布局，item 垂直排列，若 space-between 不齐可设置定宽    
 
-![Alt text](image.png)
+![image](https://github.com/koki812/MyLearing/assets/139139520/2e47c135-23ef-4dc2-a1af-89ce212d3145)

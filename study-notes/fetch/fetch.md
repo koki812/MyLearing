@@ -26,7 +26,7 @@ fetch()是用于发起网络请求的方法。它使用了 Promise 对象来处�
 
 1. 使用`fetch`函数：
 
-```
+```TypeScript
 fetch(url, {
  method: " ", // *GET, POST, PUT, DELETE, etc.
  mode: " ", // no-cors, *cors, same-origin
@@ -50,7 +50,7 @@ fetch(url, {
 
 2. 定义一个异步函数，用于发送网络请求：
 
-```
+```TypeScript
 const postData = async(url: string, data: UrlPostProps) => {
  const response = await fetch(url, {...
  });
@@ -60,7 +60,7 @@ const postData = async(url: string, data: UrlPostProps) => {
 
 3. 调用异步函数：
 
-```
+```TypeScript
 useEffect(() => {
     postData("url", {
       data（json）
@@ -76,7 +76,7 @@ useEffect(() => {
 
 ## Post 方法
 
-```
+```TypeScript
  const postData = async (url: string, data: UrlPostProps) => {
     const response = await fetch(url, {
       method: "POST",
@@ -108,7 +108,7 @@ useEffect(() => {
 
 ## Get 方法
 
-```
+```TypeScript
   const getData = async (url: string) => {
     const response = await fetch(url, {
       method: "GET",

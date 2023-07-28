@@ -4,7 +4,7 @@
 
 当前面的表达式为真时，则执行后面的表达式。相当于 if。
 
-```
+```TypeScript
   {menu.topItem && <CardList list={menu.topItem}/>}
   {menu.bottomItem && <CardItem list={menu.bottomItem}/>}
 ```
@@ -13,21 +13,19 @@
 
 当需要不是则是时，这里就用到了三目运算。相当于 if-else：
 
-```
-   {itemList.isicon ? (
-                itemList.ismoney ? (
-                  <div className={styles.txtWrap}>
-                    <div className={styles.txt}>$88.8</div>
-                    <i
-                      className={`iconfont iconicon_next ${styles.nextIcon}`}
-                    />
-                  </div>
-                ) : (
+```TypeScript
+           {itemList.isicon ? (
+              itemList.ismoney ? (
+                <div className={styles.txtWrap}>
                   <div className={styles.txt}>$88.8</div>
-                )
+                  <i className={`iconfont iconicon_next ${styles.nextIcon}`} />
+                </div>
               ) : (
-                <i className={`iconfont iconicon_next ${styles.nextIcon}`} />
-              )}
+                <div className={styles.txt}>$88.8</div>
+              )
+            ) : (
+              <i className={`iconfont iconicon_next ${styles.nextIcon}`} />
+            )}
 ```
 
 ## 指数运算符（`**`）

@@ -44,7 +44,7 @@ padding : 上下 右左；
 在运用同一组件需要不同样式的情况下,可以给定标识符进行判断给予同一组件不同样式
 例
 
-```TypeScript {linenos=True}
+```TypeScript
 <div
   key={index}
   className={
@@ -56,7 +56,7 @@ padding : 上下 右左；
 
 也可以对同一位置选择 display 不同内容
 
-```
+```TypeScript
 {itemList.ismoney ? (
   <div className={styles.txtWrap}>
     <div className={styles.txt}>$88.8</div>

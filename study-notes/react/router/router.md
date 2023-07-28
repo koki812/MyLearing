@@ -17,8 +17,8 @@ tips：Link 实现组件切换时，实际上存在组件的销毁与创建，�
 
 例如：
 
-```
- {routersConfig.map((routersItems: IRouterProps, index: number) => {
+```TypeScript
+          {routersConfig.map((routersItems: IRouterProps, index: number) => {
             return (
               <Route
                 key={index}
@@ -49,7 +49,7 @@ tips：Link 实现组件切换时，实际上存在组件的销毁与创建，�
 
 # 父子组件传 props
 
-```
+```TypeScript
 export const Items = (props: ItemsProps) => {
     const { list } = props;
     return（
@@ -60,7 +60,7 @@ export const Items = (props: ItemsProps) => {
 }
 ```
 
-```
+```TypeScript
 <Items list={itemsArray} />
 ```
 
@@ -72,8 +72,8 @@ export const Items = (props: ItemsProps) => {
 需要加判断，判断该变量是否为空，再去使用该变量
 解决：
 
-```
-{routersItems.children?.map(
+```TypeScript
+                {routersItems.children?.map(
                   (childItems: IRouterProps, key: number) => {
                     return (
                       <Route
@@ -92,6 +92,6 @@ export const Items = (props: ItemsProps) => {
 问题：No routes matched location “/“
 解决：
 
-```
+```TypeScript
 <Route path="/" element={<Navigate to="grocery" />} />
 ```

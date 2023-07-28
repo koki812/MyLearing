@@ -58,7 +58,7 @@
 
 3. 在 src 文件夹下创建 appsetting.ts,定义接口类型并将发起请求 json 的数据，将返回的结果定义给全局环境中 appSettings 对象
 
-```
+```TypeScript
 export interface AppSettings {
   serverUrl: string;
   jsVersion: string;
@@ -80,7 +80,7 @@ export const InitialAppSetting = async () => {
 
 4. 在 src 文件夹下创建 AppHook.ts，组件可以使用该 Hook 来判断数据是否加载完成，并根据 isLoad 状态进行相应的渲染处理
 
-```
+```TypeScript
 export const useAction = () => {
   const [isLoad, setIsLoad] = useState<boolean>(false);
 
@@ -95,7 +95,7 @@ export const useAction = () => {
 
 5. 在 App.tsx 中判断是否载入
 
-```
+```TypeScript
 export const App = () => {
   const { isLoad } = useAction();
 
@@ -108,7 +108,7 @@ export const App = () => {
 
 7. 放入接口封装的方法
 
-```
+```TypeScript
 import { AppSettings } from "../appsettings";
 
 export const Base = async <T>(
@@ -148,7 +148,7 @@ export const Post = async <T>(url: string, data?: object) => {
 
 8. 封装需要调取数据的方法
 
-```
+```TypeScript
 export const GetCardListData = async (
   params: ICardApiProps
 ): Promise<ITxtCardData> => {
@@ -167,7 +167,7 @@ export const GetSwiperImgData = async (
 
 9. 在 hook 中调用封装好的方法传入参数获取数据
 
-```
+```TypeScript
   useEffect(() => {
     GetCardListData({
       limit: 10,
@@ -220,7 +220,7 @@ export const GetSwiperImgData = async (
     2. 挂载后判断是否 load 成功再显示页面
 
 3. 关于全局环境中的 appSettings 对象
-   在 appsetting.ts 中定义 setting 值，使用`import { AppSettings } from "../appsettings";`或者`import settings from "../appsettings";`会取不到在全局中定义好的 appSettings 对象情况   
+   在 appsetting.ts 中定义 setting 值，使用`import { AppSettings } from "../appsettings";`或者`import settings from "../appsettings";`会取不到在全局中定义好的 appSettings 对象情况
    此时：setting 的值为 undefined，在使用 setting 值时，调取不到 appsetting.json 存储的数据
    不能直接用 import 调取 setting 使用
 

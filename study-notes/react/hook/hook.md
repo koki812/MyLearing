@@ -1,4 +1,4 @@
-# useEffect Hooks
+# useEffect
 
 ### 参数 1:箭头函数()=>{}，在真正渲染 html 之前会执行它
 
@@ -6,41 +6,41 @@
 
 -   情况 1:没有，代表每次执行组件函数时，都会执行副作用函数
 
-```
+```TypeScript
 useEffect(() =>{} )
 ```
 
 -   情况 2:[]空数组，代表副作用函数只会执行一次
 
-```
+```TypeScript
 useEffect(() =>{},[] )
 ```
 
 -   情况 3:[依赖项]，依赖项变化时，副作用函数会执行
 
-```
+```TypeScript
 useEffect(() =>{},[依赖项] )
 ```
 
-```
+```TypeScript
   useEffect(() => {
     document.title = `${name} ${YearResult} 的档案`;
   }, [name, YearResult]);
 
 ```
 
-# useState Hooks
+# useState
 
 参数:数据的初始值  
 返回值:[a,b]  
 a:状态数据  
 b:方法,修改状态数据的方法 setXX()
 
-```
+```TypeScript
 const [a,b] = useState(初始值)
 ```
 
-```
+```TypeScript
   const [age, setAge] = useState<number>(0);//setAge(age + 1);
   const [year, setYear] = useState<number>(2000);//  setYear(year + age);
   const [name, setName] = useState<string>("jack");
@@ -50,8 +50,8 @@ const [a,b] = useState(初始值)
 
 useLocation 的 hook 可以返回当前的 location 对象
 
-```
-{` ${styles.link} ${
+```TypeScript
+          {` ${styles.link} ${
             location.pathname === "/grocery/delivery" && styles.active
           }`}
 
@@ -68,7 +68,7 @@ useLocation 的 hook 可以返回当前的 location 对象
 
 -   tips：React 会自动重新渲染所有特定的上下文的子级，在接受提供者的 value 开始比较，若相同会跳过重新渲染并 memo，反之接收新的上下文值
 
-```
+```TypeScript
 <!-- 父组件 -->
     <props.ChildContext.Provider value={props.YearResult}>
         <Child />
@@ -82,7 +82,7 @@ useLocation 的 hook 可以返回当前的 location 对象
       <span className={styles.default}>出生年份为：{child}</span>
     </div>
   );
-});
+  });
 ```
 
 ## useId
@@ -91,7 +91,7 @@ useLocation 的 hook 可以返回当前的 location 对象
 `const id = userId（ ）` useId 不带任何参数，且返回唯一的 id 字符串  
 不要将生成的 id 用于生成列表的 key 值
 
-```
+```TypeScript
 const nameId = useId();
 <input type="text" defaultValue={name} id={nameId} />
 <input type="submit" id={nameId} />
@@ -105,8 +105,8 @@ const nameId = useId();
 在顶层调用以声明一个或多个引用
 参数：`initialValue`是 ref 对象的 current 属性的初始值，可以是任何类型的值（null 也可以），初次渲染之后被忽略
 
-```
-const ref = useRef(0);
+```TypeScript
+  const ref = useRef(0);
 
   const handleAgeAdd = useCallback(() => {
     ref.current = ref.current + 1;
@@ -115,7 +115,7 @@ const ref = useRef(0);
   }, [age, name]);
 ```
 
-##### tips
+### tips
 
 -   除初始化外，不要在渲染期间读写，且更改 ref 不会触发重新渲染，若必须则用 state 读写，所以 ref 适合存储不影响组件视图输出的信息
 -   ref 的 current 的属性是可变的，但更改后不会重新渲染组件；
@@ -189,7 +189,7 @@ useReducer 用于管理具有复杂状态和交互逻辑的组件状态。它接
 1. 使用 dispatch 函数时，会触发 reducer 函数的执行，并根据传入的 action 类型来更新状态。reducer 函数在执行时会根据不同的 action 类型，执行相应的逻辑，并返回新的状态。然后，useReducer 会将新的状态值更新到组件中，并重新渲染组件。
 2. 通过 dispatch 函数，可以在组件中发起各种 action，例如更新状态、添加数据、删除数据等。dispatch 函数的调用会触发 reducer 函数的执行，从而实现对状态的更新和管理。
 
-```
+```TypeScript
 import { useReducer } from "react";
 
 interface State {

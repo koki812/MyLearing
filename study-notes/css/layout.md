@@ -5,7 +5,8 @@
 
 ## 盒子模型
 
-![Alt text](image-1.png)  
+![image](https://github.com/koki812/MyLearing/assets/139139520/2ba095a8-c9c5-44fe-9438-8b1f25df6e50)     
+ 
 margin(外边距) - 清除边框外的区域，外边距是透明的。  
 border(边框) - 围绕在内边距和内容外的边框。  
 padding(内边距) - 清除内容周围的区域，内边距是透明的。  
@@ -14,8 +15,10 @@ content(内容) - 盒子的内容，显示文本和图像。
 # 弹性盒（flex）
 
 Flexbox 是一种一维布局方法，用于按行或列排列项目。弯曲（展开）以填充额外的空间或收缩以适应较小的空间`display:flex`
-弹性模型
-![Alt text](image-6.png)
+弹性模型     
+
+![image](https://github.com/koki812/MyLearing/assets/139139520/52549a8e-a5a0-4629-9b3c-7cbc5449375a)     
+
 
 -   flex-directionand flex-wrap:的简写形式 flex-flow,即`flex-direction: row; flex-wrap: wrap;`等价`flex-flow: row wrap;`
 

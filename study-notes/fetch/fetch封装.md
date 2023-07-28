@@ -220,8 +220,7 @@ export const GetSwiperImgData = async (
     2. 挂载后判断是否 load 成功再显示页面
 
 3. 关于全局环境中的 appSettings 对象
-   在 appsetting.ts 中定义 setting 值，使用`import { AppSettings } from "../appsettings";`或者`import settings from "../appsettings";`会取不到在全局中定义好的 appSettings 对象情况，例如：
-   ![Alt text](image-15.png)
+   在 appsetting.ts 中定义 setting 值，使用`import { AppSettings } from "../appsettings";`或者`import settings from "../appsettings";`会取不到在全局中定义好的 appSettings 对象情况   
    此时：setting 的值为 undefined，在使用 setting 值时，调取不到 appsetting.json 存储的数据
    不能直接用 import 调取 setting 使用
 

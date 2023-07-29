@@ -1,8 +1,8 @@
 # useEffect
 
-### 参数 1:箭头函数()=>{}，在真正渲染 html 之前会执行它
+-   参数 1:箭头函数()=>{}，在真正渲染 html 之前会执行它
 
-### 参数 2
+-   参数 2
 
 -   情况 1:没有，代表每次执行组件函数时，都会执行副作用函数
 
@@ -23,9 +23,9 @@ useEffect(() =>{},[依赖项] )
 ```
 
 ```TypeScript
-  useEffect(() => {
-    document.title = `${name} ${YearResult} 的档案`;
-  }, [name, YearResult]);
+useEffect(() => {
+  document.title = `${name} ${YearResult} 的档案`;
+}, [name, YearResult]);
 
 ```
 
@@ -41,24 +41,22 @@ const [a,b] = useState(初始值)
 ```
 
 ```TypeScript
-  const [age, setAge] = useState<number>(0);//setAge(age + 1);
-  const [year, setYear] = useState<number>(2000);//  setYear(year + age);
-  const [name, setName] = useState<string>("jack");
+const [age, setAge] = useState<number>(0);//setAge(age + 1);
+const [year, setYear] = useState<number>(2000);//  setYear(year + age);
+const [name, setName] = useState<string>("jack");
 ```
 
-## useLocation()
+# useLocation()
 
 useLocation 的 hook 可以返回当前的 location 对象
 
 ```TypeScript
-          {` ${styles.link} ${
-            location.pathname === "/grocery/delivery" && styles.active
-          }`}
-
-
+{` ${styles.link} ${
+  location.pathname === "/grocery/delivery" && styles.active
+}`}
 ```
 
-## useContext
+# useContext
 
 `const value = useContext(SomeContext)` 从组件顶层调用，来读取和订阅上下文  
 `useContext`返回调用组件的上下文值  
@@ -70,9 +68,9 @@ useLocation 的 hook 可以返回当前的 location 对象
 
 ```TypeScript
 <!-- 父组件 -->
-    <props.ChildContext.Provider value={props.YearResult}>
-        <Child />
-    </props.ChildContext.Provider>
+  <props.ChildContext.Provider value={props.YearResult}>
+      <Child />
+  </props.ChildContext.Provider>
 <!-- 子组件 -->
   const ChildContext = createContext(2000);
   export const Child = React.memo(() => {
@@ -85,7 +83,7 @@ useLocation 的 hook 可以返回当前的 location 对象
   });
 ```
 
-## useId
+# useId
 
 生成可以传递给可访问属性的唯一的 id，从调用组件的'parent path‘生成  
 `const id = userId（ ）` useId 不带任何参数，且返回唯一的 id 字符串  
@@ -99,7 +97,7 @@ const nameId = useId();
 
 运行结果：![Alt text](image-5.png)
 
-## useRef
+# useRef
 
 引用渲染不需要的值`const ref = useRef（initialValue）`，返回单个属性的对象
 在顶层调用以声明一个或多个引用
@@ -115,7 +113,7 @@ const nameId = useId();
   }, [age, name]);
 ```
 
-### tips
+-   tips
 
 -   除初始化外，不要在渲染期间读写，且更改 ref 不会触发重新渲染，若必须则用 state 读写，所以 ref 适合存储不影响组件视图输出的信息
 -   ref 的 current 的属性是可变的，但更改后不会重新渲染组件；
@@ -182,7 +180,7 @@ useReducer 用于管理具有复杂状态和交互逻辑的组件状态。它接
 
 3. 可选 init：返回初始状态的初始化函数。如果未指定，则初始状态设置为 initialArg。否则，初始状态设置为调用 init(initialArg)的结果
 
-### dispatch 函数
+## dispatch 函数
 
 用于触发 reducer 函数执行的函数,主要作用是向 reducer 函数传递一个动作对象，从而根据动作类型来更新状态。eg：`dispatch(action);`
 

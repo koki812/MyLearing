@@ -18,17 +18,17 @@ Outlet 组件，将其用于父组件中可以为子路由的元素占位，并�
 navlink 是一种特殊的类型，组件自动定义了两种属性能知道页面当前的路由属性是“active”还是“pending”。所以能根据 NavLink 的 active 和 penging 状态自定义应用
 
 ```TypeScript
-              <NavLink
-                {...routerLinks}
-                to={routerLinks.path}
-                key={index}
-                className={({ isActive }) =>
-                  isActive ? `${styles.iconn}` : ``
-                }
-              >
-                <i className={`iconfont ${routerLinks.icon} ${styles.icon}`} />
-                <div className={styles.xbox}>{routerLinks.title}</div>
-              </NavLink>
+<NavLink
+  {...routerLinks}
+  to={routerLinks.path}
+  key={index}
+  className={({ isActive }) =>
+    isActive ? `${styles.iconn}` : ``
+  }
+>
+  <i className={`iconfont ${routerLinks.icon} ${styles.icon}`} />
+  <div className={styles.xbox}>{routerLinks.title}</div>
+</NavLink>
 
 ```
 

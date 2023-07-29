@@ -18,28 +18,27 @@ tips：Link 实现组件切换时，实际上存在组件的销毁与创建，�
 例如：
 
 ```TypeScript
-          {routersConfig.map((routersItems: IRouterProps, index: number) => {
-            return (
-              <Route
-                key={index}
-                path={routersItems.path}
-                element={routersItems.element}
-              >
-                {routersItems.children?.map(
-                  (childItems: IRouterProps, key: number) => {
-                    return (
-                      <Route
-                        key={key}
-                        path={childItems.path}
-                        element={childItems.element}
-                      />
-                    );
-                  }
-                )}
-              </Route>
-            );
-          })}
-
+{routersConfig.map((routersItems: IRouterProps, index: number) => {
+  return (
+    <Route
+      key={index}
+      path={routersItems.path}
+      element={routersItems.element}
+    >
+      {routersItems.children?.map(
+        (childItems: IRouterProps, key: number) => {
+          return (
+            <Route
+              key={key}
+              path={childItems.path}
+              element={childItems.element}
+            />
+          );
+        }
+      )}
+    </Route>
+  );
+})}
 ```
 
 ## 重定向路由
@@ -73,17 +72,17 @@ export const Items = (props: ItemsProps) => {
 解决：
 
 ```TypeScript
-                {routersItems.children?.map(
-                  (childItems: IRouterProps, key: number) => {
-                    return (
-                      <Route
-                        key={key}
-                        path={childItems.path}
-                        element={childItems.element}
-                      />
-                    );
-                  }
-                )}
+{routersItems.children?.map(
+  (childItems: IRouterProps, key: number) => {
+    return (
+      <Route
+        key={key}
+        path={childItems.path}
+        element={childItems.element}
+      />
+    );
+  }
+)}
 
 ```
 

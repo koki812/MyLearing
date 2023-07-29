@@ -8,22 +8,22 @@
 
 ## Set 结构的实例属性
 
-Set.prototype.constructor：构造函数，默认就是 Set 函数
+Set.prototype.constructor：构造函数，默认就是 Set 函数     
 Set.prototype.size：返回 Set 实例的成员总数
 
 ## Set 实例的四个操作方法
 
-Set.prototype.add(value)：添加某个值，返回 Set 结构本身
-Set.prototype.delete(value)：删除某个值，返回一个布尔值，表示删除是否成功
-Set.prototype.has(value)：返回一个布尔值，表示该值是否为 Set 的成员
-Set.prototype.clear()：清除所有成员，没有返回值
+Set.prototype.add(value)：添加某个值，返回 Set 结构本身   
+Set.prototype.delete(value)：删除某个值，返回一个布尔值，表示删除是否成功   
+Set.prototype.has(value)：返回一个布尔值，表示该值是否为 Set 的成员   
+Set.prototype.clear()：清除所有成员，没有返回值   
 
 ## Set 实例的四个遍历方法
 
-Set.prototype.keys()：返回键名的遍历器
-Set.prototype.values()：返回键值的遍历器
-Set.prototype.entries()：返回键值对的遍历器
-Set.prototype.forEach()：使用回调函数遍历每个成员
+Set.prototype.keys()：返回键名的遍历器   
+Set.prototype.values()：返回键值的遍历器    
+Set.prototype.entries()：返回键值对的遍历器   
+Set.prototype.forEach()：使用回调函数遍历每个成员    
 
 -   Set 的遍历顺序就是插入顺序，比如使用 Set 保存一个回调函数列表，调用时就能保证按照添加顺序调用。
 
@@ -35,14 +35,14 @@ WeakSet 结构也是不重复的值的集合，数组或类似数组的对象和
 
 -   与 Set 有两个区别:
 
-1. WeakSet 的成员只能是对象和 Symbol 值，而不能是其他类型的值。
+1. WeakSet 的成员只能是对象和 Symbol 值，而不能是其他类型的值。   
 2. WeakSet 中的对象都是弱引用,且其不可遍历（ 没有 size 属性 ）
 
 ## 方法
 
-WeakSet.prototype.add(value)：向 WeakSet 实例添加一个新成员，返回 WeakSet 结构本身。
-WeakSet.prototype.delete(value)：清除 WeakSet 实例的指定成员，清除成功返回 true，如果在 WeakSet 中找不到该成员或该成员不是对象，返回 false。
-WeakSet.prototype.has(value)：返回一个布尔值，表示某个值是否在 WeakSet 实例之中。
+WeakSet.prototype.add(value)：向 WeakSet 实例添加一个新成员，返回 WeakSet 结构本身。   
+WeakSet.prototype.delete(value)：清除 WeakSet 实例的指定成员，清除成功返回 true，如果在 WeakSet 中找不到该成员或该成员不是对象，返回 false。   
+WeakSet.prototype.has(value)：返回一个布尔值，表示某个值是否在 WeakSet 实例之中。   
 
 # Map
 
@@ -63,10 +63,10 @@ WeakSet.prototype.has(value)：返回一个布尔值，表示某个值是否在 
 
 ## Map 结构的遍历方法
 
-    Map.prototype.keys()：返回键名的遍历器。
-    Map.prototype.values()：返回键值的遍历器。
-    Map.prototype.entries()：返回所有成员的遍历器。
-    Map.prototype.forEach()：遍历 Map 的所有成员。
+Map.prototype.keys()：返回键名的遍历器。   
+Map.prototype.values()：返回键值的遍历器。   
+Map.prototype.entries()：返回所有成员的遍历器。   
+Map.prototype.forEach()：遍历 Map 的所有成员。   
 
 -   Map 的遍历顺序就是插入顺序
 

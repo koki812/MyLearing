@@ -40,3 +40,21 @@ indexOf() 是 JavaScript 字符串和数组的方法，用于查找给定元素�
 
 -   注意，如果查找的元素或子字符串不存在，indexOf() 和 lastIndexOf() 方法都返回 -1。
 
+# 字符串方法
+
+## startsWith
+
+`string.startsWith(searchString[, position]);`
+用于判断字符串是否以指定的子字符串 searchString 开头。
+
+searchString: 要搜索的子字符串。
+position (可选): 指定搜索的起始位置，默认为 0。
+返回值：如果字符串以指定的子字符串开头，则返回 true，否则返回 false。
+
+## endsWith
+
+`string.endsWith(searchString[, length]);`
+用于判断字符串是否以指定的子字符串 searchString 结尾。
+
+length (可选): 指定搜索的结束位置，默认为字符串的长度。
+返回值：如果字符串以指定的子字符串结尾，则返回 true，否则返回 false。

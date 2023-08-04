@@ -53,7 +53,7 @@
 用于读取对象的**proto**属性，对应 Object.getPrototypeOf(obj)
 
 -   Reflect.getPrototypeOf 和 Object.getPrototypeOf 的区别：         
-    如果参数不是对象，Object.getPrototypeOf 会将这个参数转为对象，然后再运行
+    如果参数不是对象，Object.getPrototypeOf 会将这个参数转为对象，然后再运行          
     Reflect.getPrototypeOf 会报错
 
 ### Reflect.setPrototypeOf(target, prototype)

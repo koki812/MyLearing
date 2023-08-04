@@ -1,6 +1,6 @@
 # Proxy
 
-Proxy 允许创建一个代理对象来拦截对目标对象的操作。
+Proxy 允许创建一个代理对象来拦截对目标对象的操作
 
 Proxy 构造函数，用来生成 Proxy 实例 `var proxy = new Proxy(target, handler);`
 不同的是 handler 参数的写法，其中 new Proxy()表示生成一个 Proxy 实例，target 参数表示所要拦截的目标对象，handler 参数也是一个对象，用来定制拦截行为。
@@ -20,7 +20,9 @@ Proxy 构造函数，用来生成 Proxy 实例 `var proxy = new Proxy(target, ha
 
 -   目标对象自身的不可配置（configurable）的属性，不能被 deleteProperty 方法删除，否则报错。
 
-### `ownKeys(target)`：拦截 `Object.getOwnPropertyNames(proxy)`、`Object.getOwnPropertySymbols( proxy )`、`Object.keys( proxy )`、for...in 循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而 `Object.keys()`的返回结果仅包括目标对象自身的可遍历属性
+### `ownKeys(target)`
+
+拦截 `Object.getOwnPropertyNames(proxy)`、`Object.getOwnPropertySymbols( proxy )`、`Object.keys( proxy )`、for...in 循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而 `Object.keys()`的返回结果仅包括目标对象自身的可遍历属性
 
 -   三类属性会被 ownKeys()方法自动过滤，不会返回
 
@@ -32,18 +34,26 @@ Proxy 构造函数，用来生成 Proxy 实例 `var proxy = new Proxy(target, ha
 -   如果目标对象自身包含不可配置的属性，则该属性必须被 ownKeys()方法返回，否则报错。
 -   如果目标对象是不可扩展的（non-extensible），这时 ownKeys()方法返回的数组之中，必须包含原对象的所有属性，且不能包含多余的属性，否则报错。
 
-### `getOwnPropertyDescriptor(target, propKey)`：拦截 `Object.getOwnPropertyDescriptor(proxy, propKey)`，返回属性的描述对象
+### `getOwnPropertyDescriptor(target, propKey)`
 
-### `defineProperty(target, propKey, propDesc)`：拦截 `Object.defineProperty（ proxy, propKey, propDesc ）`、`Object.defineProperties( proxy, propDescs )`，返回一个布尔值
+拦截 `Object.getOwnPropertyDescriptor(proxy, propKey)`，返回属性的描述对象
+
+### `defineProperty(target, propKey, propDesc)`
+
+拦截 `Object.defineProperty（ proxy, propKey, propDesc ）`、`Object.defineProperties( proxy, propDescs )`，返回一个布尔值
 
 -   如果目标对象不可扩展（non-extensible），则 defineProperty()不能增加目标对象上不存在的属性，否则会报错。
 -   如果目标对象的某个属性不可写（writable）或不可配置（configurable），则 defineProperty()方法不得改变这两个设置。
 
-### `preventExtensions(target)`：拦截 `Object.preventExtensions(proxy)`，返回一个布尔值
+### `preventExtensions(target)`
+
+拦截 `Object.preventExtensions(proxy)`，返回一个布尔值
 
 -   只有目标对象不可扩展时（即 Object.isExtensible(proxy)为 false），proxy.preventExtensions 才能返回 true，否则会报错。
 
-### `getPrototypeOf(target)`：拦截 `Object.getPrototypeOf(proxy)`，返回一个对象
+### `getPrototypeOf(target)`
+
+拦截 `Object.getPrototypeOf(proxy)`，返回一个对象
 
 拦截以下操作：
 

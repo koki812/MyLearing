@@ -120,5 +120,69 @@ Proxy 构造函数，用来生成 Proxy 实例 `var proxy = new Proxy(target, ha
 -   解决方法：
     在创建 Proxy 实例时，显式地将拦截器方法绑定到代理对象上，确保 this 指向代理对象。
 
-Proxy 的 this 问题在于拦截器方法，因此需要注意在拦截器方法中如何处理 this。           
+Proxy 的 this 问题在于拦截器方法，因此需要注意在拦截器方法中如何处理 this。
 使用 Reflect 对象来调用目标对象的方法，设置正确的 this 上下文，或者显式地将拦截器方法绑定到代理对象上。
+
+```typescript
+import React, { useState, useEffect } from "react";
+
+interface State {
+    count?: number;
+}
+
+const initialState: State = {
+    count: 0,
+};
+
+const handler: ProxyHandler<State> = {
+    set(target: State, property: keyof State, value) {
+        console.log(` property "${property}" to "${value}"`);
+        target[property] = value;
+        return true;
+    },
+};
+
+const stateProxy = new Proxy(initialState, handler);
+
+export const ProxyDemo: React.FC = () => {
+    const [state, setState] = useState<any>(stateProxy);
+
+    useEffect(() => {
+        const handleChange = () => setState({ ...stateProxy });
+        Object.keys(state).forEach((key) =>
+            Object.defineProperty(stateProxy, key, {
+                get: () => state[key as keyof State],
+                set: (value) => {
+                    state[key as keyof State] = value;
+                    handleChange();
+                },
+            })
+        );
+
+        return () => {
+            Object.keys(state).forEach(
+                (key) => delete stateProxy[key as keyof State]
+            );
+        };
+    }, [state]);
+
+    const handleIncrement = () => {
+        if (stateProxy.count !== undefined) {
+            stateProxy.count += 1;
+        }
+    };
+
+    const handleDecrement = () => {
+        if (stateProxy.count !== undefined) {
+            stateProxy.count -= 1;
+        }
+    };
+
+    return (
+        <div>
+            <button onClick={handleIncrement}>Increment</button>
+            <button onClick={handleDecrement}>Decrement</button>
+        </div>
+    );
+};
+```

@@ -1,3 +1,4 @@
+import { ProxyDemo } from "./proxy";
 import { BuiltReactApi } from "./reactAPI";
 import styles from "./styles.module.scss";
 import { TodoList } from "./todo-list";
@@ -14,7 +15,8 @@ function App() {
             {/* <TodoList /> */}
             {/* <DebugValueDemo /> */}
             {/* <DemoTrasition /> */}
-            <BuiltReactApi />
+            {/* <BuiltReactApi /> */}
+            <ProxyDemo />
         </div>
     );
 }

@@ -120,5 +120,5 @@ Proxy 构造函数，用来生成 Proxy 实例 `var proxy = new Proxy(target, ha
 -   解决方法：
     在创建 Proxy 实例时，显式地将拦截器方法绑定到代理对象上，确保 this 指向代理对象。
 
-Proxy 的 this 问题在于拦截器方法，因此需要注意在拦截器方法中如何处理 this。
+Proxy 的 this 问题在于拦截器方法，因此需要注意在拦截器方法中如何处理 this。           
 使用 Reflect 对象来调用目标对象的方法，设置正确的 this 上下文，或者显式地将拦截器方法绑定到代理对象上。

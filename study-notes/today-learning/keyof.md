@@ -59,20 +59,6 @@ position (可选): 指定搜索的起始位置，默认为 0。
 length (可选): 指定搜索的结束位置，默认为字符串的长度。         
 返回值：如果字符串以指定的子字符串结尾，则返回 true，否则返回 false。       
 
-```javascript
-const str = "Hello, World!";
-
-console.log(str.endsWith("World!"));              // 输出 true，因为字符串以 "World!" 结尾
-console.log(str.endsWith("World!", 13));          // 输出 true，因为字符串前13个字符以 "World!" 结尾
-console.log(str.endsWith("Hello", 5));            // 输出 true，因为字符串前5个字符以 "Hello" 结尾
-console.log(str.endsWith("Hello", str.length));   // 输出 true，因为整个字符串与 "Hello" 相等
-
-console.log(str.startsWith("Hello"));             // 输出 true，因为字符串以 "Hello" 开头
-console.log(str.startsWith("Hello", 5));          // 输出 true，因为字符串的前5个字符以 "Hello" 开头
-console.log(str.startsWith("World", 7));          // 输出 true，因为字符串的第7个字符开始以 "World" 开头
-console.log(str.startsWith("World", str.length)); // 输出 false，因为整个字符串不以 "World" 开头
-```
-
 # sourcetree 卡位
 
 ## error 1

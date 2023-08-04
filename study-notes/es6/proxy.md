@@ -7,16 +7,24 @@ Proxy 构造函数，用来生成 Proxy 实例 `var proxy = new Proxy(target, ha
 
 ## Proxy 拦截操作
 
-### `get(target, propKey, receiver)`：拦截对象属性的读取
+### `get(target, propKey, receiver)`
 
-### `set(target, propKey, value, receiver)`：拦截对象属性的设置
+拦截对象属性的读取
+
+### `set(target, propKey, value, receiver)`
+
+拦截对象属性的设置
 
 -   如果目标对象自身的某个属性不可写，那么 set 方法将不起作用。
 -   set 代理应当返回一个布尔值。严格模式下，set 代理如果没有返回 true，就会报错。
 
-### `has(target, propKey)`：拦截 propKey in proxy 的操作，返回一个布尔值
+### `has(target, propKey)`
 
-### `deleteProperty(target, propKey)`：拦截 delete proxy[propKey]的操作，返回一个布尔值
+拦截 propKey in proxy 的操作，返回一个布尔值
+
+### `deleteProperty(target, propKey)`
+
+拦截 delete proxy[propKey]的操作，返回一个布尔值
 
 -   目标对象自身的不可配置（configurable）的属性，不能被 deleteProperty 方法删除，否则报错。
 
@@ -66,18 +74,26 @@ Proxy 构造函数，用来生成 Proxy 实例 `var proxy = new Proxy(target, ha
 -   返回值必须是对象或者 null，否则报错。
 -   如果目标对象不可扩展（non-extensible）， getPrototypeOf()方法必须返回目标对象的原型对象。
 
-### `isExtensible(target)`：拦截 `Object.isExtensible(proxy)`，返回一个布尔值
+### `isExtensible(target)`
+
+拦截 `Object.isExtensible(proxy)`，返回一个布尔值
 
 -   只能返回布尔值，否则返回值会被自动转为布尔值。
 -   有一个强限制，它的返回值必须与目标对象的 isExtensible 属性保持一致，否则就会抛出错误。
 
-### `setPrototypeOf(target, proto)`：拦截 `Object.setPrototypeOf(proxy, proto)`，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截
+### `setPrototypeOf(target, proto)`
+
+拦截 `Object.setPrototypeOf(proxy, proto)`，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截
 
 -   如果目标对象不可扩展（non-extensible），setPrototypeOf()方法不得改变目标对象的原型。
 
-### `apply(target, object, args)`：拦截 Proxy 实例作为函数调用的操作，比如`proxy(...args)`、`proxy.call(object, ...args)`、`proxy.apply(...)`
+### `apply(target, object, args)`
 
-### `construct(target, args)`：拦截 Proxy 实例作为构造函数调用的操作，比如 `new proxy(...args)`
+拦截 Proxy 实例作为函数调用的操作，比如`proxy(...args)`、`proxy.call(object, ...args)`、`proxy.apply(...)`
+
+### `construct(target, args)`
+
+拦截 Proxy 实例作为构造函数调用的操作，比如 `new proxy(...args)`
 
 -   construct()方法返回的必须是一个对象，否则会报错。
 -   construct()拦截的是构造函数，所以它的目标对象必须是函数，否则就会报错。

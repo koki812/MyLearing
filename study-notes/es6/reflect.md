@@ -52,7 +52,7 @@
 
 用于读取对象的**proto**属性，对应 Object.getPrototypeOf(obj)
 
--   Reflect.getPrototypeOf 和 Object.getPrototypeOf 的区别：
+-   Reflect.getPrototypeOf 和 Object.getPrototypeOf 的区别：         
     如果参数不是对象，Object.getPrototypeOf 会将这个参数转为对象，然后再运行
     Reflect.getPrototypeOf 会报错
 
@@ -80,25 +80,25 @@
 基本等同于 Object.getOwnPropertyDescriptor，用于得到指定属性的描述对象
 
 -   Reflect.getOwnPropertyDescriptor 和 Object.getOwnPropertyDescriptor 的区别是：
-    -   如果 target 不是对象：
-        Object.getOwnPropertyDescriptor()不报错，返回 undefined
+    -   如果 target 不是对象：           
+        Object.getOwnPropertyDescriptor()不报错，返回 undefined        
         Reflect.getOwnPropertyDescriptor()会抛出错误，表示参数非法
 
 ### Reflect.isExtensible(target)
 
 返回一个布尔值，表示当前对象是否可扩展
 
--   如果参数不是对象
-    Object.isExtensible 会返回 false，非对象不可扩展
-    Reflect.isExtensible 会报错
+-   如果参数不是对象        
+    Object.isExtensible 会返回 false，非对象不可扩展        
+    Reflect.isExtensible 会报错        
 
 ### Reflect.preventExtensions(target)
 
 用于让一个对象变为不可扩展，返回一个布尔值，表示是否操作成功
 
--   如果参数不是对象，
-    Object.preventExtensions 在 ES5 环境报错，在 ES6 环境返回传入的参数，
-    Reflect.preventExtensions 会报错
+-   如果参数不是对象           
+    Object.preventExtensions 在 ES5 环境报错，在 ES6 环境返回传入的参数           
+    Reflect.preventExtensions 会报错       
 
 ### Reflect.ownKeys(target)
 

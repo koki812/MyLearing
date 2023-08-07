@@ -1,147 +1,46 @@
-# `<Route>`类型声明
+# React Router
 
-```typescript
-  path?: string;
-  index?: boolean;
-  children?: React.ReactNode;
-  caseSensitive?: boolean;
-  id?: string;
-  loader?: LoaderFunction;
-  action?: ActionFunction;
-  element?: React.ReactNode | null;
-  Component?: React.ComponentType | null;
-  errorElement?: React.ReactNode | null;
-  ErrorBoundary?: React.ComponentType | null;
-  handle?: RouteObject["handle"];
-  shouldRevalidate?: ShouldRevalidateFunction;
-  lazy?: LazyRouteFunction<RouteObject>;
-```
+## 路径匹配和动态段
 
-## path
-
-与 URL 匹配的路径模式
-
-### 动态段
-
-如果路径段以 开头，:那么它就成为“动态段”
-一条路由路径中拥有多个动态段：
-动态段不能是“部分”的："/teams/:teamId"
-
-### 可选部分
-
-?可以通过在路段末尾添加 "/project/task?/:taskId"
-
-### Splats
-
-如果路由路径模式以 /\* 结尾，它将匹配后面的任何字符，包括/字符。"/files/\*"
+使用 path 定义与 URL 匹配的路径模式
+动态段使用 : 开头，允许从 URL 中获取参数
+可以在路径末尾使用 ? 添加可选部分
+/\* 结尾的路径模式可以匹配任何字符
 
 ## Layout Routes
 
-`<Outlet />`布局路由与每个子路由的 prop 一起渲染
+使用 `<Outlet />`布局路由在每个子路由中渲染布局
+index 属性定义索引路由，类似于默认子路由
 
-## index
+## 大小写匹配与加载器
 
-确定该路由是否为索引路由。索引路由在其父级 URL 处呈现到其父级 Outlet（类似于默认子路由）
-`<Route index element={<Index />} />`
+使用 caseSensitive 指定路由是否区分大小写
+使用 loader 定义路由加载器，在渲染之前提供数据给路由元素
+参数从动态段中解析并传递给加载器
 
-## caseSensitive
+## 路由操作和渲染
 
-指示路由是否匹配大小写：`<Route caseSensitive element={<CaseSensitive />} />`
+使用 action 触发路由操作，如表单提交
+使用 element 或 Component 渲染路由匹配的 React 元素或组件
+使用 errorElement 或 ErrorBoundary 处理路由渲染过程中的异常
 
-## loader
+## lazy 和数据加载
 
-路由加载器在路由渲染之前被调用，每个路由都可以定义一个“加载器”函数，以便在渲染之前向路由元素提供数据。
-当用户在应用程序中导航时，下一个匹配的路由分支的加载器将被并行调用，并且它们的数据通过 useLoaderData.
+使用 lazy 异步解析路由非匹配部分，支持代码分割
+useLoaderData 用于从加载器中提取数据
 
-### params
+## Pending Navigation UI 和 Skeleton UI
 
-路由参数从动态段中解析并传递给加载器,对于确定要加载的资源很有用
+提供加载中的用户反馈，维持用户体验
+使用`<Suspense>`实现骨架屏 UI，无需等待数据加载
 
-```ts
-loader: async ({ params }) => {
-    return fetch(`/api/teams/${params.teamId}.json`);
-};
-```
+## 钩子函数
 
-### request
-
-将请求发送到加载器
-
-```ts
-loader({ request }) {}
-```
-
-## action
-
-当提交从表单、获取器或提交发送到路由时，将调用路由操作。
-
-## element/Component
-
-当路由与 URL 匹配时要渲染的 React 元素/组件。
-
-如果创建 React 元素，使用 element：
-
-`<Route path="/for-sale" element={<Properties />} />`
-否则，使用 Component, React Router 创建 React 元素：
-
-`<Route path="/for-sale" Component={Properties} />`
-
-## errorElement/ErrorBoundary
-
-当路由在渲染时抛出异常时，在 loader 或 action，React 元素/组件将渲染,不是正常的 element/ Component。
-
-如果自己创建 React 元素，使用 errorElement：
-
-`<Route errorElement={ <ErrorBoundary /> } />`
-否则，使用 ErrorBoundaryReact ,React Router 创建 React 元素：
-
-`<Route ErrorBoundary={ErrorBoundary} />`
-
-## handle
-
-任何特定于应用程序的数据。
-
-## lazy
-
-为了保持应用程序包较小并支持路由的代码分割，每个路由可以提供一个异步函数来解析路由定义的非路由匹配部分
-
-每个 lazy 函数通常都会返回动态导入的结果,然后在惰性路由模块中，导出要为路由定义的属性
-
-## Pending Navigation UI
-
-当用户在应用程序中导航时，下一页的数据会在页面呈现之前加载。在此期间提供用户反馈非常重要，这样应用程序就不会感觉没有响应。
-
-```ts
-export const Root = () => {
-    const navigation = useNavigation();
-    return <div>{navigation.state === "loading" && <GlobalSpinner />}</div>;
-};
-```
-
-## Skeleton UI with `<Suspense>`
-
-无需等待下一页的数据， defer 在数据加载时立即将 UI 翻转到带有占位符 UI 的下一个屏幕。
-
-### defer
-
-允许通过传递 Promise 而不是解析值来推迟从加载器返回的值。
-
-## useParams Hooks
-
-该 useParams 钩子返回当前 URL 中与`<Route path>`. 子路由继承父路由的所有参数。
-
-## useMatch Hooks
-
-返回给定路径相对于当前位置的路线的匹配数据。
-
-## useFetcher
+使用 useParams 获取路由中的参数
+使用 useMatch 返回给定路径相对于当前位置的路由匹配数据
+使用 useFetcher 从加载器中提取数据
 
 ## 错误处理
 
-绝大多数应用程序错误都是由 React Router 自动处理的。它将捕获在以下情况下引发的任何错误：
-
-渲染
-加载数据中
-更新数据
-
-这几乎是应用程序中的所有错误，除了事件处理程序 (`<button onClick>`) 或中引发的错误 useEffect。React Router 应用程序往往两者都很少。当抛出错误时，不会渲染路由的 element，而是 errorElement 渲染 。
+React Router 自动处理大多数应用程序错误，包括渲染、加载数据和更新数据过程中的错误
+当错误发生时，可以使用 errorElement 或 ErrorBoundary 渲染错误的元素/组件

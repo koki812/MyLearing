@@ -55,9 +55,9 @@ children: [
 
 4. 注意事项
 
-    - 不要根组件使用 `<React.StrictMode />` 严格模式
+    - 不要在根组件使用 `<React.StrictMode />` 严格模式
 
-    - (React v18+) 不要使用 ReactDOMClient.createRoot, 使用 ReactDOM.render
+    - (React v18+) 使用 ReactDOM.render
 
     - 通过 KeepAlive 包裹后，会新增 dom，可能会对对布局高度有影响，可以根据需要设置对应 css 高度
 
@@ -77,9 +77,9 @@ children: [
 ProviderBridge 组件中具有所需状态的类属性。
 
 ```
-[location.pathname];报错 react.development.js:209 Warning: 
+[location.pathname];报错 react.development.js:209 Warning:
 Can't call setState on a component that is not yet mounted.
-This is a no-op, but it might indicate a bug in your application. 
+This is a no-op, but it might indicate a bug in your application.
 Instead, assign to `this.state` directly or define a `state = {};`
 class property with the desired state in the ProviderBridge component.
 ```

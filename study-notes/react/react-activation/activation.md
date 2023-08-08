@@ -88,13 +88,11 @@ class property with the desired state in the ProviderBridge component.
 
 -   react-activation 作用：
 
-    降低初始化和更新过程的开销，提高应用的加载速度和响应性
-    仅在必要时初始化组件，避免每次渲染都进行初始化
+    降低初始化和更新过程的开销，提高应用的加载速度和响应性，仅在必要时初始化组件，避免每次渲染都进行初始化
 
 -   `<React.StrictMode />`的作用：
 
-    React 的开发工具，检测潜在问题并引发额外的警告
-    执行额外的检查和验证，有助于提高代码质量，发现潜在问题
+    React 的开发工具，检测潜在问题并引发额外的警告，额外的检查和验证，有助于提高代码质量，发现潜在问题
 
 -   二者可能的冲突情况：
 
@@ -104,7 +102,7 @@ class property with the desired state in the ProviderBridge component.
 
     1. 建议避免在根组件中使用`<React.StrictMode />`，这不意味着严格模式有问题，而是为了规避潜在的冲突
 
-    2. 如需保留 `<React.StrictMode />`的好处，可选择在根组件之外的部分使用
+    2. 如需保留 `<React.StrictMode />`，可选择在根组件之外的部分使用
 
 ## README_CN 学习链接
 

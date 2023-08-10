@@ -1,7 +1,7 @@
 # Redux
 
-Redux 是一个状态管理库，用于在应用中管理全局状态。
-基于单一状态树（单一源 of truth）的概念，将应用的状态存储在一个可预测的、不可变的数据结构中。
+Redux 是一个状态管理库，用于在应用中管理全局状态     
+基于单一状态树（单一源 of truth）的概念，将应用的状态存储在一个可预测的、不可变的数据结构中       
 
 ## 核心概念
 
@@ -183,7 +183,7 @@ root.render(
 
 ## connect 连接 React 组件和 Redux Store
 
--   使用
+###   使用
 
 1. 方便地访问和操作状态：通过 connect，可以将 Redux Store 中的状态映射到组件的 props 中，使得在组件中可以轻松地访问和操作这些状态。
 
@@ -191,7 +191,7 @@ root.render(
 
 3. 自动触发更新：connect 会自动监听 Redux Store 中的状态变化，当状态发生变化时，会自动更新组件，无需手动编写代码来监听状态变化。
 
--   不使用
+###   不使用
 
 1. 需要手动访问状态：在组件中无法直接访问 Redux Store 中的状态，需要手动通过 store.getState() 方法来获取状态。
 
@@ -199,6 +199,7 @@ root.render(
 
 3. 手动分发操作：如果需要触发状态的更新，需要手动分发 Redux action，通常需要手动创建 action creators，并在组件中调用它们。
 
+### 使用connect 连接 React 组件和 Redux Store的demo
 ```ts
 // web/src/redux/counter.tsx
 import React from "react";

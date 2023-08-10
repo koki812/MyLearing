@@ -71,4 +71,79 @@ JavaScript 能够表示的最小精度
     对于小数，只考虑整数部分
     对于空值或其他类型的值，先转为数值再计算
 
--   Math.imul()方法返回两个数以 32 位带符号整数形式相乘的结果，返回的也是一个 32 位的带符号整数
+-   Math.imul()方法返回两个数以 32 位带符号整数形式相乘的结果
+    返回一个 32 位的带符号整数
+
+-   Math.fround()方法返回一个数的 32 位单精度浮点数形式
+    如果参数的绝对值大于 224，返回的结果开始丢失精度
+    主要作用：将 64 位双精度浮点数转为 32 位单精度浮点数
+    如果小数的精度超过 24 个二进制位，返回值就会不同于原值，否则返回值不变
+    对于 NaN 和 Infinity，此方法返回原值
+    对于其它类型的非数值，Math.fround 方法会先将其转为数值，再返回单精度浮点数
+
+-   Math.hypot 方法返回所有参数的平方和的平方根
+    只要有一个参数无法转为数值，就会返回 NaN
+
+## 对数方法
+
+-   Math.expm1()
+    返回 e^x - 1，即 Math.exp(x) - 1
+
+-   Math.log1p()
+    返回 1 + x 的自然对数，即 Math.log(1 + x)
+    如果 x 小于-1，返回 NaN
+
+-   Math.log10()
+    返回以 10 为底的 x 的对数
+    如果 x 小于 0，则返回 NaN
+
+-   Math.log2()
+    返回以 2 为底的 x 的对数
+    如果 x 小于 0，则返回 NaN
+
+## 新增双曲函数方法
+
+Math.sinh(x) 返回 x 的双曲正弦
+
+Math.cosh(x) 返回 x 的双曲余弦
+
+Math.tanh(x) 返回 x 的双曲正切
+
+Math.asinh(x) 返回 x 的反双曲正弦
+
+Math.acosh(x) 返回 x 的反双曲余弦
+
+Math.atanh(x) 返回 x 的反双曲正切
+
+## BigInt（大整数数据类型）
+
+BigInt 只用来表示整数，没有位数的限制，任何位数的整数都可以精确表示
+与 Number 类型区别，BigInt 类型的数据必须添加后缀 n
+BigInt 与普通整数是两种值，它们之间并不相等
+typeof 运算符对于 BigInt 类型的数据返回 bigint
+BigInt 可以使用负号（-），但是不能使用正号（+），因为会与 asm.js 冲突
+
+### BigInt 函数
+
+1. 必须有参数，而且参数必须可以正常转为数值
+2. 如果字符串无法解析成 Number 类型，所以会报错
+3. 参数如果是小数，也会报错
+
+-   实例方法
+    BigInt.prototype.toString()
+    BigInt.prototype.valueOf()
+    BigInt.prototype.toLocaleString()
+
+-   静态方法
+    BigInt.asUintN(width, BigInt)： 给定的 BigInt 转为 0 到 2^width - 1 之间对应的值
+    BigInt.asIntN(width, BigInt)：给定的 BigInt 转为 -2^width - 1 到 2^(width - 1) - 1 之间对应的值
+    BigInt.parseInt(string[, radix])：近似于 Number.parseInt()，将一个字符串转换成指定进制的 BigInt
+
+-   转换规则
+    Boolean()、Number()和 String()将 BigInt 转为布尔值、数值和字符串类型
+    取反运算符（!）将 BigInt 转为布尔值
+
+-   运算符>>>和+不能使用
+    不带符号的右移位运算符>>>（>>>运算符是不带符号的）
+    一元的求正运算符+（总是返回 Number 类型）
+    -   不能与普通数值进行混合运算

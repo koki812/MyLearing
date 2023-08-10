@@ -1,10 +1,11 @@
 import { ProxyDemo } from "./proxy";
-import { BuiltReactApi } from "./reactAPI";
+import Counter from "./redux/counter";
+
 import styles from "./styles.module.scss";
 import { TodoList } from "./todo-list";
 import { TryCallBack } from "./useCallback";
 import { DebugValueDemo } from "./useDebugValue";
-import { Counter } from "./useReducer";
+
 import { DemoTrasition } from "./useTransition";
 
 function App() {
@@ -16,7 +17,9 @@ function App() {
             {/* <DebugValueDemo /> */}
             {/* <DemoTrasition /> */}
             {/* <BuiltReactApi /> */}
-            <ProxyDemo />
+            {/* <ProxyDemo /> */}
+            {/* <CounterDemo /> */}
+            <Counter />
         </div>
     );
 }

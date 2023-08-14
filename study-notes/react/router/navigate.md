@@ -2,6 +2,10 @@
 
 ## navigate()
 
+```ts
+const navigate = useNavigate();
+```
+
 `navigate()` 是一个常用于导航或路由跳转的函数，在应用内部不同的页面之间进行跳转
 
 两个参数：

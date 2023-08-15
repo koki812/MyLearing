@@ -43,11 +43,10 @@ api.interceptors.response.use(
 );
 ```
 
-使用 `instance.interceptors.request.use()` 添加请求拦截器，用于在发送请求之前进行一些处理，例如添加请求头。在请求拦截器中，你可以执行任何你需要的操作，例如添加身份验证信息或日志记录。
+使用 `api.interceptors.request.use()` 添加请求拦截器，用于在发送请求之前进行一些处理    
+使用 `api.interceptors.response.use()` 添加响应拦截器，用于在接收响应数据之前进行处理
 
-使用 `instance.interceptors.response.use()` 添加响应拦截器，用于在接收响应数据之前进行处理。在响应拦截器中，你可以执行任何你需要的操作，例如对响应数据进行转换或错误处理。
-
-使用封装的 Axios 实例进行 HTTP 请求，例如：
+## 使用封装的 Axios 实例进行 HTTP 请求
 
 ### post 请求
 
@@ -75,7 +74,7 @@ export async function postData<T>(url: string, data: any): Promise<T> {
 
 #### 查询模版
 
-1. 直接放在 url 路径/url 查询字符串的形式穿参
+1. 直接放在 url 路径/url 查询字符串的形式传参
 
 ```ts
 export async function fetchTenantRoles<T>(id: string): Promise<T> {
@@ -93,7 +92,7 @@ export async function fetchRestriction<T>(teamId: string): Promise<T> {
 }
 ```
 
-2. 通过 params 对象穿参
+2. 通过 params 对象传参
 
 ```ts
 export async function getData<T>(url: string, params?: any): Promise<T> {

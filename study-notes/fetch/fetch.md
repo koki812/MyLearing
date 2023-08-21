@@ -10,7 +10,7 @@
 
 fetch()是用于发起网络请求的方法。它使用了 Promise 对象来处理异步，可以从服务器获取资源，并返回给调用者。
 
--   fetch() 的使用方法： fetch(url, options)
+- fetch() 的使用方法： fetch(url, options)
 
 1. url 是要请求的资源的 URL
 2. options 是一个可选参数对象，用于指定请求的各种设置，例如请求的方法、请求头、身份验证等。
@@ -41,12 +41,12 @@ fetch(url, {
 })
 ```
 
--   tips：  
-     mode: "no-cors" 仅允许使用一组有限的 HTTP 请求头：  
-     Accept  
-     Accept-Language  
-     Content-Language  
-     Content-Type 允许使用的值为：application/x-www-form-urlencoded、multipart/form-data 或 text/plain
+- tips：  
+   mode: "no-cors" 仅允许使用一组有限的 HTTP 请求头：  
+   Accept  
+   Accept-Language  
+   Content-Language  
+   Content-Type 允许使用的值为：application/x-www-form-urlencoded、multipart/form-data 或 text/plain
 
 2. 定义一个异步函数，用于发送网络请求：
 
@@ -132,4 +132,4 @@ useEffect(() => {
 
 ```
 
--   fetch（）API 学习地址：<https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch#%E5%8F%82%E8%A7%81>
+- fetch（）API 学习地址：<https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch#%E5%8F%82%E8%A7%81>

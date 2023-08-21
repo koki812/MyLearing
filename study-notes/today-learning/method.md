@@ -2,7 +2,7 @@
 
 ## `clearInterval()`，`setInterval()`
 
-`clearInterval()` 方法是用于取消通过 `setInterval()` 函数创建的定时器        
+`clearInterval()` 方法是用于取消通过 `setInterval()` 函数创建的定时器
 `setInterval()` 方法来定期执行某个函数，使用 `clearInterval()` 方法来停止该定时器的执行
 
 - 基本用法：

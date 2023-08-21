@@ -1,22 +1,22 @@
 # useEffect
 
--   参数 1:箭头函数()=>{}，在真正渲染 html 之前会执行它
+- 参数 1:箭头函数()=>{}，在真正渲染 html 之前会执行它
 
--   参数 2
+- 参数 2
 
--   情况 1:没有，代表每次执行组件函数时，都会执行副作用函数
+- 情况 1:没有，代表每次执行组件函数时，都会执行副作用函数
 
 ```TypeScript
 useEffect(() =>{} )
 ```
 
--   情况 2:[]空数组，代表副作用函数只会执行一次
+- 情况 2:[]空数组，代表副作用函数只会执行一次
 
 ```TypeScript
 useEffect(() =>{},[] )
 ```
 
--   情况 3:[依赖项]，依赖项变化时，副作用函数会执行
+- 情况 3:[依赖项]，依赖项变化时，副作用函数会执行
 
 ```TypeScript
 useEffect(() =>{},[依赖项] )
@@ -46,7 +46,7 @@ const [year, setYear] = useState<number>(2000);//  setYear(year + age);
 const [name, setName] = useState<string>("jack");
 ```
 
-# useLocation()
+# useLocation
 
 useLocation 的 hook 可以返回当前的 location 对象
 
@@ -64,7 +64,7 @@ useLocation 的 hook 可以返回当前的 location 对象
 `<SomeContext.Provider>`位于 useContext 组件之上，若没有 provider 那么返回上下文的 dafault value  
 `createContext`返回最新值，且上下文发生变化 react 会自动重新渲染并读取上下文组件
 
--   tips：React 会自动重新渲染所有特定的上下文的子级，在接受提供者的 value 开始比较，若相同会跳过重新渲染并 memo，反之接收新的上下文值
+- tips：React 会自动重新渲染所有特定的上下文的子级，在接受提供者的 value 开始比较，若相同会跳过重新渲染并 memo，反之接收新的上下文值
 
 ```TypeScript
 <!-- 父组件 -->
@@ -113,22 +113,22 @@ const nameId = useId();
   }, [age, name]);
 ```
 
--   tips
+- tips
 
--   除初始化外，不要在渲染期间读写，且更改 ref 不会触发重新渲染，若必须则用 state 读写，所以 ref 适合存储不影响组件视图输出的信息
--   ref 的 current 的属性是可变的，但更改后不会重新渲染组件；
--   ref 可以在重新渲染之间存储信息；
--   更改 ref 不会触发重新渲染
--   ref 对于每个组件来说都是本地的
+- 除初始化外，不要在渲染期间读写，且更改 ref 不会触发重新渲染，若必须则用 state 读写，所以 ref 适合存储不影响组件视图输出的信息
+- ref 的 current 的属性是可变的，但更改后不会重新渲染组件；
+- ref 可以在重新渲染之间存储信息；
+- 更改 ref 不会触发重新渲染
+- ref 对于每个组件来说都是本地的
 
 # useDebugValue
 
 `useDebugValue` 用于在 React DevTools 中向自定义 hook 添加标签。
 接受两个参数：`value` 和 可选`format`。
 
--   `value` 是要提供调试信息的值，可以为任何类型。
--   可选`format` 是一个可选的格式化函数，用于将值转换为调试信息的字符串表示形式，useDebugValue(date, date => date.toDateString());
-    格式化函数将接收调试值作为参数，并应返回格式化的显示值。当组件被检查时，React DevTools 将调用此函数并显示其结果。
+- `value` 是要提供调试信息的值，可以为任何类型。
+- 可选`format` 是一个可选的格式化函数，用于将值转换为调试信息的字符串表示形式，useDebugValue(date, date => date.toDateString());
+  格式化函数将接收调试值作为参数，并应返回格式化的显示值。当组件被检查时，React DevTools 将调用此函数并显示其结果。
 
 # useDeferredValue
 
@@ -151,20 +151,18 @@ return：
 import { useState, useDebugValue, useDeferredValue } from "react";
 
 export const DebugValueDemo = () => {
-    const [count, setCount] = useState<number>(0);
-    const deferredCount = useDeferredValue(count);
+  const [count, setCount] = useState<number>(0);
+  const deferredCount = useDeferredValue(count);
 
-    useDebugValue(deferredCount, (value) => `Deferred Count: ${value}`);
+  useDebugValue(deferredCount, (value) => `Deferred Count: ${value}`);
 
-    return (
-        <div>
-            <p>Count: {count}</p>
-            <p>Deferred Count: {deferredCount}</p>
-            <button onClick={() => setCount((num) => num + 1)}>
-                Count + 1
-            </button>
-        </div>
-    );
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <p>Deferred Count: {deferredCount}</p>
+      <button onClick={() => setCount((num) => num + 1)}>Count + 1</button>
+    </div>
+  );
 };
 ```
 
@@ -253,27 +251,27 @@ export const Counter = () => {
 import React, { useState, useEffect, useLayoutEffect } from "react";
 
 export const DemoTrasition: React.FC = () => {
-    const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
-    useLayoutEffect(() => {
-        console.log("useLayoutEffect ------ updated");
-    });
+  useLayoutEffect(() => {
+    console.log("useLayoutEffect ------ updated");
+  });
 
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setIsVisible(!isVisible);
-        }, 2000);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsVisible(!isVisible);
+    }, 2000);
 
-        return () => {
-            clearTimeout(timeout);
-        };
-    }, [isVisible]);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [isVisible]);
 
-    return (
-        <div>
-            <button onClick={() => setIsVisible(!isVisible)}>Visibility</button>
-            {isVisible && <div>Transition</div>}
-        </div>
-    );
+  return (
+    <div>
+      <button onClick={() => setIsVisible(!isVisible)}>Visibility</button>
+      {isVisible && <div>Transition</div>}
+    </div>
+  );
 };
 ```

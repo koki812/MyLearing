@@ -50,7 +50,8 @@ console.log(`真实DOM：`, DOM);
 <div>真实DOM</div>
 ```
 
-真实的 DOM 结构挂载了很多方法，其中一节截图：
+真实的 DOM 结构挂载了很多方法，其中一节截图：  
+
 ![真实DOM](image.png)
 
 ## 虚拟 DOM 的好处

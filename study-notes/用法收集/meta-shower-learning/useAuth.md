@@ -54,14 +54,16 @@
 3. **导出 AuthProvider 组件** ： 在根组件中包裹整个程序
 
    ```tsx
-   <AuthProvider><App /></AuthProvider>
+   <AuthProvider>
+     <App />
+   </AuthProvider>
    ```
 
 4. **使用`useContext`：** 在需要访问上下文值的组件中，使用`useContext`钩子来获取上下文的值,使得在函数式组件中可以直接获取共享的值，而不需要通过多层的组件传递，导出 useAuth Hook，通过返回 useContext(AuthContext) 来获取 AuthContext 的值
 
    ```tsx
    export default const useAuth = () => {
-     return useContext(AuthContext); 
+     return useContext(AuthContext);
    };
    ```
 

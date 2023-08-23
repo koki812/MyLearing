@@ -1,4 +1,6 @@
-# 用户登入登出身份验证 useAuth()
+# useAuth()
+
+## 用户登入登出身份验证
 
 `useContext`是 React 提供的一个钩子函数，用于在函数式组件中获取上下文（context）的值,上下文是一种在组件树中共享数据的方法，使得在不同组件之间传递数据变得更加简便
 
@@ -52,25 +54,22 @@
 3. **导出 AuthProvider 组件** ： 在根组件中包裹整个程序
 
    ```tsx
-   <AuthProvider>...</AuthProvider>
+   <AuthProvider><App /></AuthProvider>
    ```
 
 4. **使用`useContext`：** 在需要访问上下文值的组件中，使用`useContext`钩子来获取上下文的值,使得在函数式组件中可以直接获取共享的值，而不需要通过多层的组件传递，导出 useAuth Hook，通过返回 useContext(AuthContext) 来获取 AuthContext 的值
 
    ```tsx
-   import { useContext } from "react";
-   import { AuthContext } from "./providers/authProvider";
-
-   export default function useAuth() {
-     return useContext(AuthContext);
-   }
+   export default const useAuth = () => {
+     return useContext(AuthContext); 
+   };
    ```
 
 5. **使用`useAuth`自定义钩子函数**，从身份验证上下文中获取值
 
-```tsx
-let { token, username, signin, signout } = useAuth();
-```
+   ```tsx
+   let { token, username, signin, signout } = useAuth();
+   ```
 
 ## `useContext`的常见用途
 

@@ -69,7 +69,7 @@
 
 4. **减少不必要的渲染：** 通过优化的 Diff 算法，更准确地计算出需要更新的组件，从而减少不必要的 DOM 操作
 
-## 副作用
+### 副作用
 
 - **生命周期函数调用频率变化：** 由于增量渲染，一些生命周期函数可能会被多次调用。需要注意避免在 `shouldComponentUpdate`、已废弃钩子（如 `componentWillMount`）、以及不稳定钩子（如 `componentWillReceiveProps`）中出现副作用
 

@@ -5,12 +5,10 @@
 - **Fiber 架构：** 重新设计了协调引擎，以 Fiber 节点作为基本单位来表示组件，构建组件树，每个 Fiber 节点存储了组件的状态、属性等信息
 
   > Fiber 节点是构建 Fiber 树的基本单元，具有以下关键属性：
+    > 1. **type 和 key：** type 属性表示组件类型，可以是字符串（原生标签）或函数/类组件,key 用于区分和重用 Fiber 节点
+    > 2. **stateNode：** stateNode 属性保存组件实例、DOM 节点或其他 React 元素的引用
+    > 3. **child、sibling 和 return：** 定义了 Fiber 树的结构，child 指向第一个子节点，sibling 指向下一个兄弟节点，return 指向父节点
 
-  1. **type 和 key：** type 属性表示组件类型，可以是字符串（原生标签）或函数/类组件,key 用于区分和重用 Fiber 节点
-
-  2. **stateNode：** stateNode 属性保存组件实例、DOM 节点或其他 React 元素的引用
-
-  3. **child、sibling 和 return：** 定义了 Fiber 树的结构，child 指向第一个子节点，sibling 指向下一个兄弟节点，return 指向父节点
      ![树的结构](image.png)
 
 - **增量渲染：** 允许将渲染任务切分成多个小任务，可以在多帧中逐步完成，增加了浏览器的渲染间隙，提高了响应性
@@ -32,7 +30,8 @@
 2. 可中断遍历：采用后序遍历，遍历 Fiber 树，处理子节点、兄弟节点，然后返回父节点
 
    > 遍历流程：后序遍历方法
-   > ![遍历流程](image-1.png)
+   
+   ![遍历流程](image-1.png)
 
 3. 生成 Effect List：根据遍历过程中的节点变更，生成 effect list，记录节点的新增、更新、删除等变更。
 

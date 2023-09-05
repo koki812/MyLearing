@@ -1,5 +1,9 @@
 # React 中的时间片（Time Slicing）和任务调度器（Scheduler）
 
+> React 的时间片机制和 Scheduler 是为了提高应用性能和用户体验而引入的关键技术
+> Scheduler 管理任务的优先级和时间片，使 React 应用能够更好地适应不同的浏览器和性能需求
+> 时间片机制是 React 持续优化的一部分，有助于构建更加流畅和响应的 Web 应用程序
+
 ## 任务调度器（Scheduler）
 
 - Scheduler 是 React 内部的一个核心模块，它负责协调和控制组件渲染的时间安排。
@@ -38,7 +42,3 @@
 
 - 是浏览器提供的 API，它可以在浏览器空闲时执行一些任务。
 - React 在一些情况下使用 requestIdleCallback 来实现时间片机制，但它存在浏览器兼容性问题，因此 React 内部也实现了自己的 Scheduler 来更好地控制任务调度。
-
-> React 的时间片机制和 Scheduler 是为了提高应用性能和用户体验而引入的关键技术
-> Scheduler 管理任务的优先级和时间片，使 React 应用能够更好地适应不同的浏览器和性能需求
-> 时间片机制是 React 持续优化的一部分，有助于构建更加流畅和响应的 Web 应用程序

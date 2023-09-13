@@ -23,13 +23,13 @@ export const AuthProvider = (props: { children: React.ReactNode }) => {
 
   const signIn = (auth: string, callback?: VoidFunction) => {
     setAuthToken(auth);
-    localStorage.setItem(tokenKey, auth); // 将认证token存储到本地存储中
+    localStorage.setItem(tokenKey, auth); // 将认证token存储到浏览器的缓存中
     callback && callback();
   };
 
   const signOut = (callback?: VoidFunction) => {
     setAuthToken("");
-    localStorage.removeItem(tokenKey); // 从本地存储中移除token
+    localStorage.removeItem(tokenKey); // 从浏览器缓存中移除token
     callback && callback();
   };
 

@@ -28,6 +28,8 @@
 
 ### github 无权限问题导致
 
+- 错误日志
+
 ```log
  Failed to perform checkout on agent: '/usr/bin/git -c core.askpass=/usr/local/TCAgent/temp/buildTmp/pass8264037977309932815 -c credential.helper= fetch --progress --recurse-submodules=no origin +refs/heads/*:refs/remotes/origin/*' command failed.
   exit code: 128
@@ -49,6 +51,8 @@ yarn bulid
 
 ### types/xlsx 卸载问题
 
+- 错误日志
+
 ```log
 warning @types/xlsx@0.0.36: This is a stub types definition for xlsx (https://github.com/sheetjs/js-xlsx). xlsx provides its own type definitions, so you don't need @types/xlsx installed!
 error eslint-plugin-unicorn@47.0.0: The engine "node" is incompatible with this module. Expected version ">=16". Got "14.20.0"
@@ -60,6 +64,8 @@ yarn remove @types/xlsx
 ```
 
 ### eslint-plugin-unicorn 与 node.js 版本不兼容
+
+- 错误日志
 
 ```log
 error eslint-plugin-unicorn@47.0.0: The engine "node" is incompatible with this module. Expected version ">=16". Got "14.20.0"
@@ -73,6 +79,8 @@ error Found incompatible module.
 
 ### docker login
 
+- 错误日志
+
 ```log
 WARNING! Using --password via the CLI is insecure. Use --password-stdin.
 Error response from daemon: Get "https://yamimeal.azurecr.io/v2/": unauthorized: authentication required, visit https://aka.ms/acr/authorization for more information.
@@ -82,6 +90,8 @@ disable 掉 docker login 登陆步骤，代理机已经是 docker 登陆状态
 ![docker login](image.png)
 
 ### vite 找不到/build 路径
+
+- 错误日志
 
 ```log
 #7 ERROR: "/build" not found: not found

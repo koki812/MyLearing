@@ -35,33 +35,35 @@ const handleUploadFile = (info: { file: string | Blob | RcFile }) => {
 > 存在获取不到 upload 的值的情况
 
 1. 点击确认按钮后并不能获取到 Form 组件下面 Upload 组件的信息
-  
+
 https://blog.ligengxin.me/posts/antd-form-get-upload-fileLsit-info/#3%E9%99%84%E5%BD%95
 
-> getValueFromEvent 属性是有别于别的基础组件(Input 之类的)    
-> 是特别为 Upload 组件新加的    
-> getValueFromEvent 属性的值是 normFile   
-> normFile 是一个函数,应该是 Form 组件封装了一些东西可以 normFile 当回调函数传递给 Upload 组件    
-> 只要 Form.Item 给了 getValueFromEvent={normFile} 这个属性    
-> Upload 组件 Props 中会多出一个 onChange 回调函数这个属性    
-> 那么在 Upload 组件中使用这个 onChange 这个函数    
-> 在 Upload 组件中的 onChange 中使用   
+> getValueFromEvent 属性是有别于别的基础组件(Input 之类的)  
+> 是特别为 Upload 组件新加的  
+> getValueFromEvent 属性的值是 normFile  
+> normFile 是一个函数,应该是 Form 组件封装了一些东西可以 normFile 当回调函数传递给 Upload 组件  
+> 只要 Form.Item 给了 getValueFromEvent={normFile} 这个属性  
+> Upload 组件 Props 中会多出一个 onChange 回调函数这个属性  
+> 那么在 Upload 组件中使用这个 onChange 这个函数  
+> 在 Upload 组件中的 onChange 中使用  
 > 在 Form 组件这个文件的 normFile 函数输出了文件信息
 
+2. Antd 上传(Upload)组件报，解决方法：`<Form.Item>`加上`valuePropName="fileList"`
 
-2. Antd 上传(Upload)组件报，解决方法：`<Form.Item>`加上` valuePropName="fileList"`
 ```log
 ：Warning: [antd: Upload] `value` is not a valid prop, do you mean `fileList`?
 ```
+
 3. 存在报错信息
+
 ```log
 Upload.js:97 Uncaught (in promise) TypeError: (fileList || []).forEach is not a function
 ```
+
 `<Form.Item`加上`getValueFromEvent={(e) => {
       if (Array.isArray(e)) return e;
       return e?.fileList;
     }}`
-
 
 ```tsx
 <Form form={form} onFinish={onFinish}>
@@ -88,7 +90,6 @@ Upload.js:97 Uncaught (in promise) TypeError: (fileList || []).forEach is not a 
   </Form.Item>
 </Form>
 ```
-
 
 ### 在 Form 表单中使用 Upload
 

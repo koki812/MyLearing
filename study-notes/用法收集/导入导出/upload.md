@@ -62,6 +62,34 @@ Upload.js:97 Uncaught (in promise) TypeError: (fileList || []).forEach is not a 
       return e?.fileList;
     }}`
 
+
+```tsx
+<Form form={form} onFinish={onFinish}>
+  <Form.Item
+    label="申请发票"
+    name="申请发票"
+    rules={[{ required: true, message: "请填写申请发票！" }]}
+    className="my-7"
+    valuePropName="fileList"
+    getValueFromEvent={(e) => {
+      if (Array.isArray(e)) return e;
+      return e?.fileList;
+    }}
+  >
+    <Upload
+      name="file"
+      beforeUpload={() => {
+        return false;
+      }}
+      accept="image/*"
+    >
+      <Button icon={<UploadOutlined />}>上传发票图片</Button>
+    </Upload>
+  </Form.Item>
+</Form>
+```
+
+
 ### 在 Form 表单中使用 Upload
 
 ```tsx

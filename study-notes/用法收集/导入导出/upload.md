@@ -73,7 +73,7 @@ Upload.js:97 Uncaught (in promise) TypeError: (fileList || []).forEach is not a 
     rules={[{ required: true, message: "请填写申请发票！" }]}
     className="my-7"
     valuePropName="fileList"
-    getValueFromEvent={(e) => {
+    getValueFromEvent={(e: { fileList: File }) => {
       if (Array.isArray(e)) return e;
       return e?.fileList;
     }}

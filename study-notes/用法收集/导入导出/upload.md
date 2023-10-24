@@ -76,11 +76,6 @@ const [fileList, setFileList] = useState<UploadFile[]>([]);
     name="申请发票"
     rules={[{ required: true, message: "请填写申请发票！" }]}
     className="my-7"
-    valuePropName="fileList"
-    getValueFromEvent={(e) => {
-      if (Array.isArray(e)) return e;
-      return e?.fileList;
-    }}
   >
     <Upload
       name="file"

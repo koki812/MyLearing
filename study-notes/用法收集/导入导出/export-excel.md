@@ -89,3 +89,100 @@ const handleExport = () => {
   }
 };
 ```
+
+## 导出例子
+
+```ts
+// 导出处理函数
+const handleExport = () => {
+  // 初始化空数组，用于存储导出数据
+  const list: {
+    targetNumber: string;
+    date: string;
+    time: string;
+  }[] = [];
+
+  // 对数据list进行遍历
+  selectedRows.map((item) => {
+    // 检查数据是否存在
+    if (item.recentHumanAnswerRecords) {
+      item.recentHumanAnswerRecords.map((inItem) => {
+        // 将处理后的数据推入list数组
+        list.push({
+          targetNumber: item.targetNumber
+            .replace(/\+/g, "")
+            .replace(/(\d)(?=(?:\d{3})+$)/g, "$1-"),
+          date: monitoringDate(
+            inItem.taskStartCallTime,
+            inItem.taskEndCallTime
+          ),
+          time: monitoringTime(
+            inItem.taskStartCallTime,
+            inItem.taskEndCallTime
+          ),
+        });
+      });
+    }
+  });
+
+  // 检查list数组是否为空
+  if (isEmpty(list)) {
+    // 如果为空，显示警告消息
+    message.warning("表格内无数据可导出");
+  } else {
+    // 如果不为空，调用导出函数onDownLoadWorkbook
+    onDownLoadWorkbook(
+      [
+        { title: "手機號碼", key: "targetNumber", width: 150 },
+        { title: "接聽時間段", key: "date", width: 160 },
+        { title: "接聽時間段", key: "time", width: 100 },
+      ],
+      list
+    );
+  }
+};
+
+// 格式化日期的辅助函数
+const monitoringDate = (startTime: string, endTime: string) => {
+  // 检查起始时间和结束时间是否存在
+  if (!startTime || !endTime) {
+    return "";
+  }
+
+  // 格式化起始时间和结束时间，并进行时区转换
+  const formatStartDate = dateToUtc(startTime)
+    .tz("America/Los_Angeles")
+    .format("YYYY/MM/DD");
+
+  const formatEndDate = dateToUtc(endTime)
+    .tz("America/Los_Angeles")
+    .format("YYYY/MM/DD");
+
+  // 如果起始日期和结束日期相同，返回单一日期，否则返回日期范围
+  if (formatStartDate === formatEndDate) {
+    return formatStartDate;
+  } else {
+    return `${formatStartDate}-${formatEndDate}`;
+  }
+};
+
+// 格式化时间的辅助函数
+const monitoringTime = (startTime: string, endTime: string) => {
+  // 检查起始时间和结束时间是否存在
+  if (!startTime || !endTime) {
+    return "";
+  }
+
+  // 格式化起始时间和结束时间，并进行时区转换
+  const formatStartTime = dateToUtc(startTime)
+    .tz("America/Los_Angeles")
+    .format("HH:mm");
+
+  const formatEndTime = dateToUtc(endTime)
+    .tz("America/Los_Angeles")
+    .format("HH:mm");
+
+  // 返回格式化后的时间范围
+  return `${formatStartTime}-${formatEndTime}`;
+};
+```

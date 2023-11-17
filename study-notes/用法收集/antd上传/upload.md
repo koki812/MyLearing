@@ -13,24 +13,7 @@
   <Button type="primary" className={buttonStyle}>
     上传文件
   </Button>
-</Upload>;
-
-// 上传图片写法
-const [uploadRecord, setUploadRecord] =
-  useState<UploadChangeParam<UploadFile>>();
-
-<Upload
-  beforeUpload={() => {
-    return false;
-  }}
-  onChange={(records) => setUploadRecord(records)}
-  maxCount={1}
-  accept="image/*"
->
-  <Button className="flex items-center" icon={<UploadOutlined />}>
-    选择图片
-  </Button>
-</Upload>;
+</Upload>
 ```
 
 ```tsx

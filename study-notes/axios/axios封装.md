@@ -13,37 +13,37 @@ import axios from "axios";
 
 // 创建一个 Axios 实例
 export const api = axios.create({
-    baseURL: "", // 设置基本的 API URL
-    timeout: 5000, // 设置请求超时时间
+  baseURL: "", // 设置基本的 API URL
+  timeout: 5000, // 设置请求超时时间
 });
 
 // 请求拦截器
 api.interceptors.request.use(
-    (config) => {
-        // 在发送请求之前可以进行一些处理，例如添加请求头等
-        // config.headers.Authorization = `Bearer ${token}`;
-        return config;
-    },
-    (error) => {
-        // 处理请求错误
-        return Promise.reject(error);
-    }
+  (config) => {
+    // 在发送请求之前可以进行一些处理，例如添加请求头等
+    // config.headers.Authorization = `Bearer ${token}`;
+    return config;
+  },
+  (error) => {
+    // 处理请求错误
+    return Promise.reject(error);
+  }
 );
 
 // 响应拦截器
 api.interceptors.response.use(
-    (response) => {
-        // 在接收响应数据之前可以进行一些处理
-        return response;
-    },
-    (error) => {
-        // 处理响应错误
-        return Promise.reject(error);
-    }
+  (response) => {
+    // 在接收响应数据之前可以进行一些处理
+    return response;
+  },
+  (error) => {
+    // 处理响应错误
+    return Promise.reject(error);
+  }
 );
 ```
 
-使用 `api.interceptors.request.use()` 添加请求拦截器，用于在发送请求之前进行一些处理    
+使用 `api.interceptors.request.use()` 添加请求拦截器，用于在发送请求之前进行一些处理
 使用 `api.interceptors.response.use()` 添加响应拦截器，用于在接收响应数据之前进行处理
 
 ## 使用封装的 Axios 实例进行 HTTP 请求
@@ -60,8 +60,8 @@ api.interceptors.response.use(
 
 ```ts
 export async function postData<T>(url: string, data: any): Promise<T> {
-    const response = await api.post<T>(url, data);
-    return response.data;
+  const response = await api.post<T>(url, data);
+  return response.data;
 }
 ```
 
@@ -78,17 +78,17 @@ export async function postData<T>(url: string, data: any): Promise<T> {
 
 ```ts
 export async function fetchTenantRoles<T>(id: string): Promise<T> {
-    const url = `/tenant/roles?TenantId=${id}`;
-    const response = await api.get<T>(url);
-    return response.data;
+  const url = `/tenant/roles?TenantId=${id}`;
+  const response = await api.get<T>(url);
+  return response.data;
 }
 ```
 
 ```ts
 export async function fetchRestriction<T>(teamId: string): Promise<T> {
-    const url = `/settlement/restriction/${teamId}`;
-    const response = await api.get<T>(url);
-    return response.data;
+  const url = `/settlement/restriction/${teamId}`;
+  const response = await api.get<T>(url);
+  return response.data;
 }
 ```
 
@@ -96,7 +96,7 @@ export async function fetchRestriction<T>(teamId: string): Promise<T> {
 
 ```ts
 export async function getData<T>(url: string, params?: any): Promise<T> {
-    const response = await api.get<T>(url, { params });
-    return response.data;
+  const response = await api.get<T>(url, { params });
+  return response.data;
 }
 ```

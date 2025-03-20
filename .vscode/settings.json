@@ -34,11 +34,11 @@
   "prettier.requireConfig": false,
   "prettier.trailingComma": "es5",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "[typescript]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": false
+      "source.fixAll.eslint": "never"
     }
   },
   // 字体大小
